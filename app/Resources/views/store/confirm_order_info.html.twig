@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<div class="large-container large-container--pad">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="printer__title">Confirmar compra</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+
+                        <div id="machine-list-recomended">
+
+
+                    {% set machineCount = 0 %}
+
+
+                            <div class="col-md-12 col-xs-12">
+
+                                <div class="machine-list">
+                                
+                                {% for cartproduct in cart.cartProductsDTOs %}
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="machine-list__name-name">{{ cartproduct.nombre }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 col-xs-12">
+                                            <div class="machine-features">
+                                            
+                                                <p>{{ cartproduct.description }}</p>
+                                                <ul class="iconic-list list-inline mT20 mB20">
+                                                {% if cartproduct.airPrint == true %}
+                                                    <li>
+                                                        <img src="{{ asset('images/icon-movil.png') }}" title="Impresión móvil" data-toggle="tooltip" data-placement="top">
+                                                    </li>
+                                                {% endif %}
+                                                {% if cartproduct.wifi == true %}
+                                                    <li>
+                                                        <img src="{{ asset('images/icon-wifi.png') }}" title="Conectividad Wi-Fi" data-toggle="tooltip" data-placement="top">
+                                                    </li>
+                                                {% endif %}
+                                                {% if cartproduct.cloud == true %}
+                                                    <li>
+                                                        <img src="{{ asset('images/icon-ethernet.png') }}" title="Conectividad Ethernet" data-toggle="tooltip" data-placement="top">
+                                                    </li>
+                                                {% endif %}
+                                                {% if cartproduct.nfc == true %}
+                                                    <li>
+                                                        <img src="{{ asset('images/icon-doble-cara.png') }}" title="Doble cara automático" data-toggle="tooltip" data-placement="top">
+                                                    </li>
+                                                {% endif %}
+                                                {% if cartproduct.sheet != '' %}
+                                                    <li class="pull-right">
+                                                        <a href="{{ cartproduct.sheet }}" target="_blank">
+                                                            <img src="{{ asset('images/icon-pdf.png') }}" title="Descargar especificaciones técnicas" data-toggle="tooltip" data-placement="top">
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 col-xs-12">
+                                            <img src="/uploads/{{cartproduct.imagePerspective}}" alt="{{ cartproduct.nombre }}" class="img-thumbnail my-4"/>
+                                        </div>
+
+                                        <div class="col-md-5 col-xs-12">
+                                            <div class="price-outlet-checkout">
+                                                <div class="title-outlet-checkout">                                                    
+                                                    Precio:<br>
+                                                        {{ cartproduct.total|number_format(2) }} € IVA incl.<br>
+                                                        <span>{{ cartproduct.totalPrice|number_format(2) }} € Sin IVA.</span>
+                                                </div>
+                                                <div class="outlet-price-total-checkout">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="select-quantity">Cantidad: {{ cartproduct.quantity }}  </div>                                                   
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                {% set machineCount = machineCount + 1 %}
+                                {% endfor %}
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-12 col-xs-12">
+                                    <div class="total-checkout">
+                                        <div class="price-outlet-total">
+                                            <div class="title-outlet-total"> Total {{ machineCount }} productos:
+                                                <div style="text-align:right">{{ cart.totalPrice|number_format(2) }} € <span>IVA incl.</span><br>{{ cart.price|number_format(2) }} € <span>Sin IVA.</span>
+                                                </div><br>
+                                                <form action="{{ path('home_store') }}">
+                                                    <input type="submit" class="checkoutBtn-shopping" value="Seguir Comprando">
+                                                </form>
+                                                <form action="{{ path('store_user_data') }}">
+                                                    <input type="submit" class="checkoutBtn-form" value="Continuar">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+{% endblock %}
+

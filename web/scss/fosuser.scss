@@ -1,0 +1,213 @@
+body {
+  &.fosuser {
+    background: #3d6e9e;
+  }
+}
+
+.fosuser-container {
+  min-height: 80vh;
+  min-width: 460px;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1280px;
+  display: table;
+  text-align: center;
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    display: block;
+    max-width: none;
+  }
+
+
+}
+
+.fosuser-container--login-only {
+  width:auto;
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    display: block;
+    max-width: none;
+  }
+}
+
+.fosuser-main {
+  display: table-cell;
+  vertical-align: middle;
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    display: inline-block;
+  }
+
+}
+
+.fosuser__form-container {
+  background-color: $white;
+  margin: 80px 0;
+  padding: 35px 80px;
+  width: 100%;
+  position: relative;
+}
+
+.steps {
+  margin: 30px 0 15px;
+  ul {
+    display: inline-block;
+    margin: 0 auto;
+    list-style: none;
+    padding-left: 0;
+    > li {
+      display: inline-block;
+      padding-right: 20px;
+      position: relative;
+      &::after {
+        content: '/';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 8px;
+      }
+
+      &:last-child {
+        padding-right: 0;
+        &::after {
+          content: none;
+        }
+      }
+
+      &.current {
+        a {
+          text-decoration: underline;
+          font-weight: bold;
+        }
+      }
+      a {
+        display: block;
+        color: $main;
+      }
+    }
+  }
+
+  .current-info,
+  .number {
+    display: none;
+  }
+}
+
+.actions {
+  margin-top: 30px;
+  ul {
+    display: flex;
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+    > li {
+      flex: 1 1 0;
+      margin: 0 4px;
+      &.disabled {
+        display: none;
+      }
+      a {
+        display: block;
+        background: $main;
+        color: $white;
+        font-size: 16px;
+        line-height: 43px;
+        height: 43px;
+      }
+    }
+  }
+}
+
+.fos-page-title {
+  font-size: 36px;
+  color: $main;
+  font-weight: 200;
+  &.login {
+      text-align: left;
+  }
+}
+
+.fosuser,
+.adress-form-container{
+  
+  .content {
+    .title {
+      display: none;
+    }
+    .body {
+      display: none;
+
+      &.current {
+        display: block;
+      }
+    }
+  }
+
+  label.error {
+    display: block;
+    text-align: left;
+    color: red;
+  }
+
+  .login-btn {
+    font-size: 16px;
+    height: 43px;
+    text-transform: none;
+  }
+
+  .form-control {
+    border-radius: 0;
+    border:1px solid $main;
+    background-color: $secondary;
+    color: $main;
+    font-size: 16px;
+    height: 44px;
+    padding: 5px 17px;
+
+    &.error {
+      border:1px solid red;
+    }
+  }
+
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    $main;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    $main;
+    opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:   $main;
+    opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    $main;
+  }
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color:    $main;
+  }
+
+  .facturation-tabs {
+    padding-left: 0;
+    list-style: none;
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    li {
+      display: block;
+      width: 50%;
+      border-bottom: 1px solid #31689b;
+      float: left;
+      &.active {
+        border: 1px solid $main;
+        border-bottom: 0;
+      }
+      a {
+        font-size: 16px;
+        padding: 14px 0;
+        display: block;
+        color: $main;
+
+      }
+    }
+  }
+}

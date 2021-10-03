@@ -1,0 +1,39 @@
+# File Uploader
+vich_uploader:
+  db_driver: orm
+  mappings:
+    product_images:
+      namer: 'vich_uploader.namer_uniqid'
+      uri_prefix: '%app.path.product_images%'
+      upload_destination: '%kernel.root_dir%/../web/uploads'
+      inject_on_load:     false
+      delete_on_update:   false
+      delete_on_remove:   true
+    user_contracts:
+      namer: 'vich_uploader.namer_uniqid'
+      uri_prefix: '%app.path.user_contracts%'
+      upload_destination: '%kernel.root_dir%/../web/uploads/files/user/contracts'
+      inject_on_load:     false
+      delete_on_update:   false
+      delete_on_remove:   false
+    user_invoices:
+      namer: 'vich_uploader.namer_uniqid'
+      uri_prefix: '%app.path.user_factures%'
+      upload_destination: '%kernel.root_dir%/../web/uploads/files/user/factures'
+      inject_on_load:     false
+      delete_on_update:   false
+      delete_on_remove:   false
+    sheet_file:
+      namer: 'vich_uploader.namer_uniqid'
+      uri_prefix: '%app.path.sheet_files%'
+      upload_destination: '%kernel.root_dir%/../web/uploads/product/sheet'
+      inject_on_load:     false
+      delete_on_update:   false
+      delete_on_remove:   true
+    resume_file:
+      namer: 'vich_uploader.namer_uniqid'
+      uri_prefix: '%app.path.resume_files%'
+      upload_destination: '%kernel.root_dir%/../web/uploads/product/pdf'
+      inject_on_load:     false
+      delete_on_update:   false
+      delete_on_remove:   true

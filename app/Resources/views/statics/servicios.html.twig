@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="large-container">
+        <div class="hero hero--commitment">
+            <div class="hero__container">
+                <div class="hero__inner">
+                    <img src="{{ asset('images/img-header-servicios.png') }}" class="hero__bg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="container-benef-resp">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="title">
+                        <h1>Queremos ayudarte</h1>
+                        <p>Lo tienes todo, de una manera sencilla y sin sustos.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="blocks">
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/login">
+                            <div class="block">
+                                <img src="{{ asset('images/serv-icon-conversion.png') }}" alt="Conversión a PDF y Excel" title="Conversión a PDF y Excel">
+                                <h2>Conversión a PDF y Excel</h2>
+                                <p>Convierte tus documentos físicos en hojas de cálculo, word y ocr.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/login">
+                            <div class="block-blue">
+                                <img src="{{ asset('images/serv-icon-formato.png') }}" alt="Dar formato a documentos" title="Dar formato a documentos">
+                                <h2>Dar formato a documentos</h2>
+                                <p>Da formato a tus documentos de forma automática.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/login">
+                            <div class="block">
+                                <img src="{{ asset('images/serv-icon-traduccion.png') }}" alt="Traducción automática" title="Traducción automática">
+                                <h2>Traducción automática</h2>
+                                <p>Traduce tus documentos automáticamente.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="blocks">
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/login">
+                            <div class="block-blue">
+                                <img src="{{ asset('images/serv-icon-traduccion-humana.png') }}" alt="Traducción humana" title="Traducción humana">
+                                <h2>Traducción humana</h2>
+                                <p>Servicio de traducción humana con más de 100 idiomas, las 24h.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/login">
+                            <div class="block">
+                                <img src="{{ asset('images/serv-icon-escaneo.png') }}" alt="Escaneo a One Drive" title="Escaneo a One Drive">
+                                <h2>Escaneo a One Drive</h2>
+                                <p>Digitaliza documentos y súbelos a tu nube con un solo clic.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/login">
+                            <div class="block-blue">
+                                <img src="{{ asset('images/serv-icon-g-drive.png') }}" alt="Escano a Gogle Drive" title="Escano a Gogle Drive">
+                                <h2>Escaneo a Gogle Drive</h2>
+                                <p>Con un solo clic digitaliza documentos y súbelos a la nube. </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

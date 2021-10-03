@@ -1,0 +1,35 @@
+# This file sets the configuration of the 'Product' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+    entities:
+        # the configuration of this entity is very verbose because it's used as
+        # an example to show all the configuration options available for entities
+        # check out the configuration of the other entities to see how concise
+        # can be the configuration of your backend
+        StoreOrder:
+            class: AppBundle\Entity\StoreOrderForPersistence
+            label: 'Store Order'
+            disabled_actions: ['new', 'edit']
+            list:
+                fields:
+                    - { property: 'transactId', label: 'Docutea Id' }
+                    - { property: 'idTpv', label: 'Redsys Id' }
+                    - { property: 'state', label: 'Estado' }
+                    - { property: 'name', label: 'Nombre'}
+                    - { property: 'cif', label: 'CIF' }
+                    - { property: 'contactName', label: 'Nombre de Contacto' }
+                    - address
+                    - { property: 'town', label: 'Población' }
+                    - { property: 'province', label: 'Provincia', css_class: text-right }
+                    - { property: 'cp', label: 'CP', css_class: text-right }
+                    - { property: 'phone',label: 'Teléfono', css_class: text-right }
+                    - { property: 'email', label: 'Email' }
+                    - { property: 'date', type: 'date', label: 'Fecha' }
+                    - { property: 'amount', format: '%.2f €', label: 'Cantidad', css_class: text-right }
+                    - aceptarComunicacion

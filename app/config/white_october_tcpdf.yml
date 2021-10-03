@@ -1,0 +1,25 @@
+white_october_tcpdf:
+#    file:                 '%kernel.project_dir%/vendor/tecnickcom/tcpdf/tcpdf.php'
+#    class:                TCPDF
+    tcpdf:
+        k_path_cache:         '%kernel.project_dir%/tcpdf'
+        k_path_url_cache:     '%kernel.project_dir%/tcpdf'
+        k_path_images:        '%kernel.project_dir%/web/uploads'
+        k_blank_image:        '%kernel.project_dir%/web/uploads/_blank.png'
+        pdf_creator:          Docutea
+        pdf_author:           Docutea
+    #        pdf_header_logo: ../../../../../web/bundles/home/images/peas.jpg
+    #        pdf_header_logo_width: 30
+        pdf_unit:             mm
+        pdf_margin_header:    5
+        pdf_margin_footer:    10
+        pdf_margin_top:       27
+        pdf_margin_bottom:    25
+        pdf_margin_left:      15
+        pdf_margin_right:     15
+        pdf_font_name_main:   helvetica
+        pdf_font_size_main:   10
+        pdf_font_name_data:   helvetica
+        pdf_font_size_data:   8
+        pdf_font_monospaced:  courier
+        pdf_image_scale_ratio:  1.25

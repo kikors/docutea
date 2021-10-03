@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        h1, h2, h3 {
+            color: #31689b;
+            font-weight: 500;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        h2 {
+            font-size: 24px;
+            border-bottom: 1px solid #31689b;
+        }
+    </style>
+</head>
+<body>
+<table bgcolor="#31689b">
+    <tr style="height:90px">
+        <td align="center" valign="middle"><img width="120" src="{{ asset('images/logoDocutea.png') }}"/></td>
+    </tr>
+</table>
+<h1>Factura {{ invoice.invoiceCode }}</h1>
+
+<h2>Cuota/mes</h2>
+
+<table>
+    <tr>
+        <td>Precio fijo (equipos/servicios):</td>
+        <td>{{ invoice.fixedPrice }}</td>
+    </tr>
+    <tr>
+        <td>Precio variable (consumibles):</td>
+        <td>{{ invoice.variablePrice }}</td>
+    </tr>
+    <tr>
+        <td>Cuaota/mes:</td>
+        <td>{{ invoice.fixedPrice + invoice.variablePrice }}</td>
+    </tr>
+</table>
+
+
+</body>
+</html>
+
+

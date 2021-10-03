@@ -1,0 +1,5 @@
+
+    <div class="carro-header">
+        {% set cart = app.session.get('docutea_shopping_cart') %} 
+            <a href="{{ path('store_cart_details') }}"><span class="items-carro">{% if cart.productQtty is defined  %}{{ cart.productQtty }}{% else %}0{% endif %}</span></a>
+    </div>

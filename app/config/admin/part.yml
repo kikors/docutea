@@ -1,0 +1,56 @@
+# This file sets the configuration of the 'Product' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+    entities:
+        # the configuration of this entity is very verbose because it's used as
+        # an example to show all the configuration options available for entities
+        # check out the configuration of the other entities to see how concise
+        # can be the configuration of your backend
+        Part:
+            class: AppBundle\Entity\Part
+            label: 'Part'
+            list:
+                fields:
+                    - code
+                    - description
+                    - { property: 'price', format: '%.2f €', label: 'price', css_class: text-right }
+                    - { property: 'pageVolume', label: 'pageVolume', css_class: text-right }
+                    - enabled
+                    - type
+#                    - name
+#                    - { property: 'price', format: '%.2f ', css_class: text-right }
+#                    - { property: 'ean', type: 'string' }
+#                    - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
+#                    - { property: 'createdAt', format: 'j / M / Y' }
+#                    - tags
+#            show:
+#                fields:
+#                    - id
+#                    - { property: 'name', css_class: 'large' }
+#                    - description
+#                    - { property: 'enabled', label: 'Published' }
+#                    - createdAt
+#                    - price
+#                    - { property: 'ean', type: 'string' }
+#                    - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
+#                    - features
+#                    - categories
+#                    - tags
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Basic Information', icon: 'pencil' }
+                    - { property: 'description', css_class: 'col-sm-6', label: 'description' }
+                    - { property: 'recomendedVolume', css_class: 'col-sm-6', label: 'recomendedVolume' , type_options: { required: true }}
+                    - { type: 'section', label: 'aditional info', help: 'aditional info help' }
+                    - { property: 'aditionalInfo', type: 'ckeditor', label: ' ' }
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Product Details', icon: 'cube' }
+                    - { property: 'code', css_class: 'col-sm-6', label: 'cod', type_options: { required: true } }
+                    - { property: 'price', label: 'price', type: 'money', type_options: { currency: 'EUR' }, css_class: 'col-sm-6' }
+                    - { property: 'pageVolume', css_class: 'col-sm-6', type: 'number', label: 'pageVolume', }
+                    - { property: 'enabled'}

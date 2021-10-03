@@ -1,0 +1,28 @@
+.top-navigation{
+	background: $dark;
+
+	&__list{
+		padding-left: 0;
+		list-style: none;
+		margin-bottom: 0;
+		float: right;
+		display: table;
+		height: 35px;
+	}
+
+	&__item{
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	&__link {
+		color: $white;
+		padding: 0 15px;
+		display: block;
+		border-right:1px solid $white;
+		&:last-child{
+			border-right:0;
+			padding-right: 0;
+		}
+	}
+}

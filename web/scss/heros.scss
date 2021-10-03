@@ -1,0 +1,77 @@
+.hero {
+	&--commitment{
+		position: relative;
+	}
+
+	&__container{
+		//position:absolute;
+		//top: 0;
+		//left: 0;
+		//right: 0;
+		//height: 100%;
+		@extend .container;
+		padding: 20px 0;
+	}
+
+	&__inner {
+		height: 100%;
+		border: 1px solid #fff;
+	}
+
+	&__title{
+
+	}
+
+	&__bg {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+
+.section-title--com {
+	margin-bottom: 20px;
+}
+
+.com{
+
+	> .container {
+		@media (min-width: 1200px) {
+			width: 1045px;
+			padding: 0 0 60px;
+
+			.col-md-4 {
+				padding: 0;
+			}
+		}
+	}
+	&__title{
+		font-size: 36px;
+		color: $white;
+		font-weight:300;
+	}
+
+	&__text {
+		margin-bottom: 40px;
+		font-size: 14px;
+		color: #000;
+		font-weight: 400;
+		line-height: 160%;
+
+	}
+
+
+	&__item {
+		padding: 0 30px;
+		&--alt {
+			background-color: $main-ligth;
+			padding: 80px 30px 40px;
+			margin-top: -80px;
+			strong {
+				color: $white;
+				font-weight: 400;
+			}
+			p {color:#000;}
+		}
+	}
+}

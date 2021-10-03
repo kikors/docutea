@@ -1,0 +1,22 @@
+# This file sets the configuration of the 'Category' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+    site_name: 'Docutea'
+    edit:
+        actions: ['-delete']
+    list:
+        title: 'Product %%entity_label%%'
+        actions:
+            - { name: 'edit', label: '', icon: 'edit', title: 'Edit' }
+            - { name: 'delete', label: '', icon: 'trash', title: 'Delete' }
+            - { name: 'edit', label: '', icon: 'edit', title: 'Edit' }
+            - { name: 'show', label: '', icon: 'eye', title: 'Show' }
+    design:
+        form_theme:   'vertical'
+        color_scheme: 'dark'

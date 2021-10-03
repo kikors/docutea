@@ -1,0 +1,50 @@
+easy_admin:
+    entities:
+        User:
+            class: AppBundle\Entity\User
+            list:
+                fields:
+                    - id
+                    - username
+                    - name
+                    - email
+                    - enabled
+                    - aceptarComunicacion
+                    - lastLogin
+                    - roles
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Basic Information', icon: 'pencil' }
+                    - { property: username, css_class: 'col-sm-6'}
+                    - { property: email, css_class: 'col-sm-6'}
+                    - enabled
+                    - aceptarComunicacion
+#                    - lastLogin
+                    - { property: 'lastLogin', css_class: 'col-sm-6', label: 'Última sesión', type_options: { required: false } }
+                    # if administrators are allowed to edit users' passwords and roles, add this:
+                    - { property: 'plainPassword', type: 'text', css_class: 'col-sm-6', label: 'Contraseña', type_options: { required: false } }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+#                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Facturation Info', icon: 'cube' }
+                    - { property: name, css_class: 'col-sm-6'}
+                    - { property: address, css_class: 'col-sm-6'}
+                    - { property: owner, css_class: 'col-sm-6'}
+                    - { property: ibanCode, css_class: 'col-sm-6'}
+                    - { property: cardNumber, css_class: 'col-sm-4'}
+                    - { property: cardExpiration, css_class: 'col-sm-4'}
+                    - { property: cardCode, css_class: 'col-sm-4'}
+                    - { property: idNdd, css_class: 'col-sm-4', label: 'Empresa NDD'}
+                    - { property: passwordNDD, css_class: 'col-sm-4', label: 'Password NDD'}
+
+#- { type: 'group', css_class: 'col-sm-7', label: 'Basic Information', icon: 'pencil' }
+#                    - { property: 'description', css_class: 'large', label: 'description' }
+#                    - { property: 'color', css_class: 'large', label: 'color', type_options: { required: true } }
+#                    - { property: 'recomendedVolume', css_class: 'large', label: 'recomendedVolume' , type_options: { required: true }}
+#                    - { property: 'capacity', css_class: 'large', label: 'capacity' , type_options: { required: true }}
+#                    - { type: 'section', label: 'aditional info', help: 'aditional info help' }
+#                    - { property: 'aditionalInfo', type: 'ckeditor', label: ' ' }
+#                    - { type: 'group', css_class: 'col-sm-5', label: 'Product Details', icon: 'cube' }
+#                    - { property: 'code', css_class: 'large', label: 'cod', type_options: { required: true } }
+#                    - { property: 'price', type: 'number' }
+#                    - { property: 'pageVolume', type: 'number', label: 'pageVolume', }
+#                    - { property: 'enabled'}

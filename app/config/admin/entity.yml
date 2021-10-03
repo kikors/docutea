@@ -1,0 +1,22 @@
+# This file sets the configuration of the 'Category' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+    entities:
+        - AppBundle\Entity\FormatType
+        - AppBundle\Entity\FunctionalityType
+        - AppBundle\Entity\Technology
+        - AppBundle\Entity\TonerCapacity
+        - AppBundle\Entity\TonerColor
+        - AppBundle\Entity\TonerType
+        - AppBundle\Entity\Maker
+        - AppBundle\Entity\PartType
+        - AppBundle\Entity\CarePackProfit
+        - AppBundle\Entity\Costumer
+        - AppBundle\Entity\PageRange
+        - AppBundle\Entity\ChromaType

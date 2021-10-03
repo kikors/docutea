@@ -1,0 +1,320 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+    default_contract_duration: 12
+    default_color_percent: 15
+    default_count_pages: 250
+
+    pdf_file_path: '%kernel.project_dir%/web/uploads/pdf/'
+    pdf_sales_order_template_to_doc: 'pdf/info_sales_oreder.html.twig'
+    pdf_sales_order_title_to_doc: 'Resumen de Contratación'
+    pdf_sales_order_subject_to_doc: 'Aquí no se que va'
+
+services:
+    app.services.param_printer_list:
+        class: AppBundle\Services\ParamPrinterList
+        arguments: ['@doctrine.orm.default_entity_manager']
+
+    app.services.calculate_prices_list:
+        class: AppBundle\Services\PricesList
+        arguments:
+            - '@doctrine.orm.default_entity_manager'
+            - '@app.services.machine_manager'
+            - '@app.services.sales_order_manager'
+
+    app.services.get_default_color_percent:
+        class: AppBundle\Services\DefaultColorPercent
+        arguments: ['%default_color_percent%']
+
+    app.services.date_tools:
+        class: AppBundle\Services\DateTools
+
+    app.services.system_mailer:
+        class: AppBundle\Services\SystemMailer
+        arguments:
+            - '@mailer'
+            - '@twig'
+
+    app.services.invoice_code_generator:
+        class: AppBundle\Services\InvoiceCodeGenerator
+        arguments: ['@doctrine.orm.default_entity_manager']
+
+    app.pdf_creator_sales_order_doc:
+        class: AppBundle\Infraestructure\Services\CreateSalesOrderDoc\PDFCreateSalesOrderDoc
+        arguments:
+            - '@templating.engine.twig'
+            - '@white_october.tcpdf'
+            - '%pdf_file_path%'
+            - '%pdf_sales_order_template_to_doc%'
+            - '%pdf_sales_order_title_to_doc%'
+            - '%pdf_sales_order_subject_to_doc%'
+
+#********************** Listeners *************************************
+
+    app_bundle.listener.sales_order.create_ofert:
+        class: AppBundle\Listener\CreateOfertListener
+        arguments:
+            - '@doctrine.orm.default_entity_manager'
+            - '@app.services.sales_order_manager'
+            - '@event_dispatcher'
+            - '%admin_notification_mail%'
+            - '@app.pdf_creator_sales_order_doc'
+            - '@app.sales_order_notifier'
+            - '@app.logger_notifier'
+            - '%pdf_file_path%'
+        tags:
+            - {name: kernel.event_listener, event: app_bundle.sales_order.create_ofert, method: onCreateOfert, priority: 100}
+
+    app_bundle.listener.send_mail:
+        class: AppBundle\Listener\SendMailListener
+        arguments:
+            - '@app.services.system_mailer'
+        tags:
+            - {name: kernel.event_listener, event: app_bundle.mail.send_mail, method: onSendMail}
+            - {name: kernel.event_listener, event: docutea.transaction.success, method: onSendMail}
+
+    app_bundle.listener.sales_order.reconciliation:
+        class: AppBundle\Listener\ReconciliationListener
+        arguments:
+            - '@logger'
+            - '@doctrine.orm.default_entity_manager'
+            - '@app.services.invoice_manager'
+        tags:
+            - {name: kernel.event_listener, event: app_bundle.sales_order.reconciliated, method: onReconciliated}
+
+    app_bundle.sales_order.consolidation:
+        class: AppBundle\Listener\ConsolidateListener
+        arguments:
+            - '@logger'
+            - '@doctrine.orm.default_entity_manager'
+            - '@app.services.invoice_manager'
+
+    app_bundle.listener.sales_order.terminate:
+          class: AppBundle\Listener\TerminateListener
+          arguments:
+              - '@logger'
+              - '@doctrine.orm.default_entity_manager'
+              - '@app.services.invoice_manager'
+          tags:
+              - {name: kernel.event_listener, event: app_bundle.sales_order.terminate, method: onTerminated}
+
+#********************** Managers *************************************
+
+    app.services.sales_order_manager:
+        class: AppBundle\Entity\Manager\SalesOrderManager
+        arguments:
+          - '@app.services.date_tools'
+          - '@doctrine.orm.default_entity_manager'
+          - '%default_contract_duration%'
+          - '%default_count_pages%'
+          - '%default_color_percent%'
+
+    app.services.invoice_manager:
+        class: AppBundle\Entity\Manager\InvoiceManager
+        arguments:
+          - '@doctrine.orm.default_entity_manager'
+          - '@app.services.invoice_code_generator'
+          - '@app.services.date_tools'
+
+    app.services.machine_manager:
+        class: AppBundle\Entity\Manager\MachineManager
+
+    app.services.toner_manager:
+        class: AppBundle\Entity\Manager\TonerManager
+
+#********************** Extensiones de twig *************************************
+
+    easy_admin.twig_extension:
+        class: AppBundle\Twig\EasyAdminExtension
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    app.update_contract_info:
+        class: AppBundle\Services\CreateContractInfoResume
+        arguments:
+            - '@doctrine.orm.default_entity_manager'
+            - '@app.services.sales_order_manager'
+            - '@app.services.machine_manager'
+            - '@app.services.toner_manager'
+
+#********************** Email Notification *************************************
+
+    app.from_twig_swift_mailer_client:
+        class: AppBundle\Infraestructure\Services\Notification\EmailNotification\EmailClient\FromTwigSwiftMailerEmailClient
+        arguments:
+            - '@mailer'
+            - '@twig'
+            - '%template_notification_mail%'
+
+    app.sales_order_notifier:
+        class: AppBundle\Infraestructure\Services\Notification\EmailNotification\EmailNotifier
+        arguments:
+            - '@app.from_twig_swift_mailer_client'
+            - '%notificator_mail%'
+
+    app.store_order_notifier:
+        class: AppBundle\Infraestructure\Services\Notification\EmailNotification\EmailNotifier
+        arguments:
+            - '@app.from_twig_swift_mailer_client'
+            - '%notificator_mail%'
+            - '%template_store_order_notification_mail%'
+
+    app.logger_notifier:
+            class: AppBundle\Infraestructure\Services\Notification\LoggerNotification\LoggerNotifier
+            arguments: ['@logger']
+
+    app.sales_order_notification_sender:
+        class: AppBundle\Application\Service\Notification\NotificationSender
+        arguments: ['@app.sales_order_notifier']
+
+#********************** Repositorios *************************************
+    docutea.infrastructure.inmemory_shopping_cart_repository:
+        class: AppBundle\Infraestructure\Model\InMemoryShoppingCartRepository
+        arguments:
+            - '@session'
+            - '%app.shoppin_cart_session_key%'
+
+    docutea.infrastructura.doctrine_product_repository:
+        class: AppBundle\Infraestructure\Model\DoctrineProductRepository
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@docutea.infrastructure.product_translator'
+
+    docutea.infrastructura.doctrine_store_order_repository:
+        class: AppBundle\Infraestructure\Model\DoctrineStoreOrderRepository
+        arguments:
+           - '@doctrine.orm.default_entity_manager'
+           - '@docutea.infraestructure.store_order_service_translator'
+
+    #********************** Translator *************************************
+    docutea.infrastructure.product_translator:
+        class: AppBundle\Infraestructure\Model\ProductTranslator
+
+    #********************** Store Services *************************************
+    docutea.application.listar_productos:
+        class: AppBundle\Application\Service\ListProducts
+        arguments:
+           - '@docutea.infrastructura.doctrine_product_repository'
+           - '@docutea.application.array.product_dto_data_transformer'
+
+    docutea.application.detalles_producto:
+        class: AppBundle\Application\Service\ProductDetail
+        arguments:
+            - '@docutea.infrastructura.doctrine_product_repository'
+            - '@docutea.application.product_dto_data_transformer'
+
+    docutea.application.add_product_to_cart:
+        class: AppBundle\Application\Service\AddProductToCart
+        arguments:
+            - '@docutea.infrastructure.inmemory_shopping_cart_repository'
+            - '@docutea.infrastructura.doctrine_product_repository'
+            - '@docutea.application.shopiping_cart_json_data_transformer'
+
+    docutea.application.update_product_to_cart:
+        class: AppBundle\Application\Service\UpdateProductToCart
+        arguments:
+            - '@docutea.infrastructure.inmemory_shopping_cart_repository'
+            - '@docutea.infrastructura.doctrine_product_repository'
+            - '@docutea.application.shopiping_cart_json_data_transformer'
+
+    docutea.application.get_shopping_cart_product_qtty:
+        class: AppBundle\Application\Service\GetShoppingCartProductsQtty
+        arguments:
+            - '@docutea.infrastructure.inmemory_shopping_cart_repository'
+
+    docutea.application.delete_product_to_cart:
+        class: AppBundle\Application\Service\DeleteProductToCart
+        arguments:
+            - '@docutea.infrastructure.inmemory_shopping_cart_repository'
+            - '@docutea.application.shopiping_cart_json_data_transformer'
+
+    docutea.application.view_cart:
+        class: AppBundle\Application\Service\ViewShoppingCart
+        arguments:
+            - '@docutea.infrastructure.inmemory_shopping_cart_repository'
+            - '@docutea.application.shoppin_cart_dtodtodata_transformer'
+
+    docutea.application.check_cart:
+        class: AppBundle\Application\Service\CheckCart
+        arguments:
+            - '@docutea.infrastructure.inmemory_shopping_cart_repository'
+            - '@docutea.application.shoppin_cart_dtodtodata_transformer'
+            - '@docutea.infrastructura.doctrine_product_repository'
+
+    docutea.application.create_store_order:
+        class: AppBundle\Application\Service\CreateStoreOrder
+        arguments:
+            - '@docutea.infrastructure.inmemory_shopping_cart_repository'
+            - '@docutea.infrastructura.doctrine_store_order_repository'
+            - '@docutea.domain.store_order_factory'
+
+    docutea.domain.store_order_factory:
+        class: AppBundle\Application\Service\Factory\StoreOrderFactory
+
+    docutea.infraestructure.store_order_service_translator:
+        class: AppBundle\Infraestructure\Model\StoreOrderServiceTranslator
+
+    docutea.application.success_store_order:
+        class: AppBundle\Application\Service\SuccessStoreOrder
+        arguments:
+            - '@docutea.infrastructure.inmemory_shopping_cart_repository'
+            - '@docutea.infrastructura.doctrine_store_order_repository'
+            - '@app.store_order_notifier'
+            - '@docutea.application.shoppin_cart_dtodtodata_transformer'
+
+    docutea.application.denied_store_order:
+        class: AppBundle\Application\Service\DeniedStoreOrder
+        arguments:
+            - '@docutea.infrastructure.inmemory_shopping_cart_repository'
+            - '@docutea.infrastructura.doctrine_store_order_repository'
+            - '@app.store_order_notifier'
+            - '@docutea.application.shoppin_cart_dtodtodata_transformer'
+
+    app.infraestructure_services.symfony_dispatcher:
+        class: AppBundle\Infraestructure\Services\SymfonyDispatcher
+        arguments: ['@event_dispatcher']
+
+    #********************** Data Transformera **********************************
+    docutea.application.product_dto_data_transformer:
+        class: AppBundle\Application\DataTransformer\ProductDTODataTransformer
+
+    docutea.application.array.product_dto_data_transformer:
+        class: AppBundle\Application\DataTransformer\ArrayListProductDTODataTransformer
+        arguments:
+          ['@docutea.application.product_dto_data_transformer']
+
+    docutea.application.cart_product_dtodtodata_transformer:
+        class: AppBundle\Application\DataTransformer\CartProductDTODataTransformer
+
+    docutea.application.shopiping_cart_json_data_transformer:
+        class: AppBundle\Application\DataTransformer\ShoppingCartJsonDataTransformer
+        arguments:
+          ['@docutea.application.cart_product_array_data_transformer']
+
+    docutea.application.cart_product_array_data_transformer:
+        class: AppBundle\Application\DataTransformer\ArrayProductDataTransformer
+
+    docutea.application.shoppin_cart_dtodtodata_transformer:
+        class: AppBundle\Application\DataTransformer\ShoppinCartDTODataTransformer
+        arguments: ['@docutea.application.cart_product_dtodtodata_transformer']
+
+    #********************** Shopping Cart **********************************
+    docutea.infraestructure_services.shopping_cart_session_check:
+        class: AppBundle\Infraestructure\Services\ShoppingCartSessionCheck
+        arguments: ['@docutea.infrastructure.inmemory_shopping_cart_repository']
+
+    #******************************** TPV **********************************
+    docutea.infraestructure_services.red_sys_tpv_service:
+        class: AppBundle\Infraestructure\Services\RedSysTpvService
+        arguments:
+            - '@docutea.infrastructure.inmemory_shopping_cart_repository'
+            - '@docutea.infraestructure_services.shopping_cart_session_check'
+            - '%tpv%'
+            - '%merchanturl%'
+            - '%urlok%'
+            - '%urlko%'
+
+    docutea.infraestructure_services.shopping_cart_has_amount:
+        class: AppBundle\Infraestructure\Services\ShoppingCartHasAmount
+        arguments: ['@docutea.application.view_cart']

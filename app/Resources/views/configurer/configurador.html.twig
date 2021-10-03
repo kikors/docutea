@@ -1,0 +1,380 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="large-container large-container--white large-container--pad">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="col-md-12">
+                    <div class="icon_filters">
+                        <a href="#" class="icon_filters_display"><img src="{{ asset('images/icon_filters.png') }}"></a>
+                    </div>
+                    <div class="filtersform">
+                        <ul class="list-inline">
+                            <li>
+                                <div class="form-group">
+                                    <select id="selectFuncion" class="selectpicker form-control filtersconf">
+                                        {% for key,value in functionalityList %}
+                                            <option value="{{ value.id }}" {% if value.id == recomendedMachine.functionality.id %} selected {% endif %}>{{ value.description }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <i class="fa fa-chevron-down rotate"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <select id="selectColor" class="selectpicker form-control filtersconf">
+                                        <!-- option>Color</option -->
+                                        {% for key,value in chromaList %}
+                                            <option value="{{ value.id }}" {% if value.id == recomendedMachine.chromaType.id %} selected {% endif %}>{{ value.description }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <i class="fa fa-chevron-down rotate"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <select id="selectTamano" class="selectpicker form-control filtersconf">
+                                        {% for key,value in formatList %}
+                                            <option value="{{ value.id }}" {% if value.id == recomendedMachine.format.id %} selected {% endif %}>{{ value.description }}</option>
+                                        {% endfor %}
+                                    </select>
+                                <i class="fa fa-chevron-down rotate"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <div class="filtersconfDiv" id="volumenControl">
+                                        <option>Volumen</option>
+                                    </div>
+                                    <i class="fa fa-chevron-down volumen rotate"></i>
+                                    <div class="configcolorControl hide">
+                                        <div class="configurator-panel__title">Volumen</div>
+                                        <div class="configurator-panel__subtitle">de impresión mensual</div>
+                                        <div class="">
+                                            <div class="number-range-container">
+                                                <input class="number-range" type="number" value="{{ rangeSelected }}" id="pages" data-default="{{ rangeSelected }}">
+                                            <div class="number-range-controls">
+                                                <div class="number-range-col">
+                                                    <button class="number-range-plus">+</button>
+                                                </div>
+                                                <div class="number-range-col number-range-col--large">
+                                                    <div class="number-range-text">Páginas</div>
+                                                </div>
+                                                <div class="number-range-col">
+                                                    <button class="number-range-minus">-</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="configuratio-round" style="display:block">
+                                        <div class="configurator-panel__title">Porcentaje</div>
+                                            <div class="configurator-panel__subtitle">páginas en color</div>
+                                                <div class="round-container">
+                                                <div id="ink" data-default="0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <select id="selectTiempo" class="selectpicker form-control filtersconf">
+                                        {% for key,value in durationList %}
+                                            <option value="{{ value.id }}" {% if value.id == durationSelected.id %} selected {% endif %}>{{ value.durationInMonths }} Meses</option>
+                                            <div class="configurator-panel__item configurator-panel__item--shrink {% if value.id == durationSelected.id %} selected {% endif %}" data-id="{{ value.id }}">
+                                            {#<span class="configurator-panel__icon icon-size"></span>#}
+                                            <div class="configurator-panel__item-text">{{ value.durationInMonths }} Meses</div>
+                                            {#{{ value.id }}#}
+                                            </div>
+                                        {% endfor %}
+                                    </select>
+                                    <i class="fa fa-chevron-down rotate"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="button js-apply-filter-new">Aplicar Filtros</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+                {% if recomendedMachine != null %}
+                    <div class="recommended-machine-container">
+                        <div class="recomenden-name-holder">
+                            <div class="recomended-name">{{ recomendedMachine.description }}</div>
+                            <div class="recomended-desc">{{ recomendedMachine.aditionalInfo|raw }}</div>
+                        </div>
+
+
+
+
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            </ol>
+
+
+                            <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img src="{{ path('home') ~ 'uploads/' ~ recomendedMachine.imageFront }}">
+                            </div>
+
+                            <div class="item">
+                                <img src="{{ path('home') ~ 'uploads/' ~ recomendedMachine.imagePerspective }}">
+                            </div>
+                            
+                            <div class="item">
+                                <img src="{{ path('home') ~ 'uploads/' ~ recomendedMachine.imageLateral }}">
+                            </div>  
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="recomended-float-list">
+                                    <span>Características del equipo:</span>
+                                    <ul class="recomended-iconic-list list-inline">
+                                        {% if recomendedMachine.airPrint == true %}
+                                            <li data-toggle="tooltip" data-placement="top" title="Doble cara automático">
+                                                <img src="{{ asset('images/icon-doble-cara.png') }}">
+                                            </li>
+                                        {% endif %}
+                                        {% if recomendedMachine.wifi == true %}
+                                            <li data-toggle="tooltip" data-placement="top" title="Conectividad Wi-Fi">
+                                                <img src="{{ asset('images/icon-wifi.png') }}">
+                                            </li>
+                                        {% endif %}
+                                        {% if recomendedMachine.cloud == true %}
+                                            <li data-toggle="tooltip" data-placement="top" title="Conectividad Ethernet">
+                                                <img src="{{ asset('images/icon-ethernet.png') }}">
+                                            </li>
+                                        {% endif %}
+                                        {% if recomendedMachine.nfc == true %}
+                                            <li data-toggle="tooltip" data-placement="top" title="Impresión móvil">
+                                                <img src="{{ asset('images/icon-movil.png') }}">
+                                            </li>
+                                        {% endif %}
+                                        {% if recomendedMachine.sheet != '' %}
+                                            <li data-toggle="tooltip" data-placement="top" title="Descargar especificaciones técnicas">
+                                                <a href="{{ pdfroute ~ recomendedMachine.sheet }}" target="_blank">
+                                                    <img src="{{ asset('images/icon-pdf.png') }}">
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="recomended-pc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Costes por página según ISO (5% B/N y 20% color)">
+                                <span>Coste por página</span>
+                                <div class="configurator-price__cost">
+                                    <div class="configurator-price__cost-text">B/N</div>
+                                    <div class="configurator-price__cost-price configurator-price-pag">{{ prices[recomendedMachine.id].costByBlackPage | default('') | number_format(5, '.', ',')}} €</div>
+                                </div>
+                                <div class="configurator-price__cost {% if prices[recomendedMachine.id].costByColorPage == 0 %} not-visible {% endif %}">
+                                    <div class="configurator-price__cost-text">Color</div>
+                                    <div class="configurator-price__cost-price configurator-price-pag">{{ prices[recomendedMachine.id].costByColorPage | default('') | number_format(5, '.', ',')}} €</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    </div>
+
+                {% endif %}
+
+                    </div>
+                    <div class="col-md-3 col-xs-12">
+                        <div class="configurator-price">
+                            <div class="configurator-price__title">Nuestro servicio incluye:</div>
+                            <ul class="chek-list">
+                                <li>Equipos</li>
+                                <li>Help Desk / Soporte</li>
+                                <li>Monitorización</li>
+                                <li>Mantenimiento</li>
+                                <li>Consumibles</li>
+                                <li>Informes mensuales</li>
+                            </ul>
+                            <div class="configurator-price__variant">
+
+                                <div class="configurator-price__variant-container" data-toggle="tooltip" data-placement="left" title="Equipos y servicios">
+                                    <div class="configurator-price__variant-text">Precio Fijo</div>
+                                    <div class="configurator-price__variant-price configurator-price-fixed">{{ prices[recomendedMachine.id].fixedPrice |default('') | number_format(2, '.', ',')}}
+                                        €
+                                    </div>
+                                </div>
+                                <div class="configurator-price__variant-container" data-toggle="tooltip" data-placement="left" title="Consumibles">
+                                    <div class="configurator-price__variant-text">Precio variable</div>
+                                    <div class="configurator-price__variant-price configurator-price-variable">{{ prices[recomendedMachine.id].variablePrice | default('') | number_format(2, '.', ',')}}
+                                        €
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="configurator-price__total">
+                                <div class="configurator-price__total-text">Total</div>
+                                <div class="configurator-price__total-price configurator-price-total">{{ prices[recomendedMachine.id].totalPrice |default('') | number_format(2, '.', ',') }}
+                                    €
+                                </div>
+                                <div class="configurator-price__total-period">mes</div>
+                            </div>
+                            <button class="configurator-price__ca button btn-block" data-id="{{ recomendedMachine.id }}">Contratar</button>
+                        </div>
+                    </div>
+            </div>
+
+    </div>
+
+
+    <div class="large-container large-container--pad">
+        <div class="container">
+            <div class="row">
+
+
+                <div id="machine-list-recomended">
+                    {% set machineCount = 1 %}
+
+                    {% for key,value in machineList %}
+                        {% if value.id != recomendedMachine.id %}
+                            {% set machineCount = machineCount + 1 %}
+                        
+                            <div class="machine-list">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="machine-list__name-name">{{ value.description }}</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="machine-list__name-text">Opción {{ machineCount }}</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="machine-features">
+                                            <ul class="iconic-list list-inline">
+                                            {% if value.airPrint == true %}
+                                                <li>
+                                                    <img src="{{ asset('images/icon-movil.png') }}" title="Impresión móvil" data-toggle="tooltip" data-placement="top">
+                                                </li>
+                                            {% endif %}
+                                            {% if value.wifi == true %}
+                                                <li>
+                                                    <img src="{{ asset('images/icon-wifi.png') }}" title="Conectividad Wi-Fi" data-toggle="tooltip" data-placement="top">
+                                                </li>
+                                            {% endif %}
+                                            {% if value.cloud == true %}
+                                                <li>
+                                                    <img src="{{ asset('images/icon-ethernet.png') }}" title="Conectividad Ethernet" data-toggle="tooltip" data-placement="top">
+                                                </li>
+                                            {% endif %}
+                                            {% if value.nfc == true %}
+                                                <li>
+                                                    <img src="{{ asset('images/icon-doble-cara.png') }}" title="Doble cara automático" data-toggle="tooltip" data-placement="top">
+                                                </li>
+                                            {% endif %}
+                                            {% if value.sheet != '' %}
+                                                <li class="pull-right">
+                                                    <a href="{{ pdfroute ~ value.sheet }}" target="_blank">
+                                                        <img src="{{ asset('images/icon-pdf.png') }}" title="Descargar especificaciones técnicas" data-toggle="tooltip" data-placement="top">
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+                                            </ul>
+                                        </div>
+                                        <div class="machine-list-page-price-bn">
+                                            <span class="machine-list__price-text">Coste por pag. b&amp;n</span>
+                                            <span class="machine-list__price-price">{{ prices[value.id].costByBlackPage | default('') | number_format(5, '.', ',') }} €</span>
+                                        </div>
+                                        <div class="machine-list-page-price-color">
+                                            <span class="machine-list__price-text">Coste por pag. color</span>
+                                            <span class="machine-list__price-price">{{ prices[value.id].costByColorPage | default('') | number_format(5, '.', ',') }} €</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="machine-list__picture">
+                                            <div class="machine-list__picture-inner">
+                                                <img src="{{ path('home') ~ 'uploads/' ~ value.imageFront }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="machine-list__price">
+                                            <div class="machine-list-fixed-price">
+                                                <span class="machine-list__price-text">Precio Fijo</span>
+                                                <span class="machine-list__price-price">{{ prices[value.id].fixedPrice | number_format(2, '.', ',')}} €</span>
+                                            </div>
+                                            <div class="machine-list-variable-price">
+                                                <span class="machine-list__price-text">Precio Variable</span>
+                                                <span class="machine-list__price-price">{{ prices[value.id].variablePrice | number_format(2, '.', ',')}} €</span>
+                                            </div>
+                                            <div class="machine-list__price-total">
+                                                <div class="machine-list-total-price">
+                                                    <span class="machine-list__price-text">Total</span>
+                                                    <span class="machine-list__price-price">{{ prices[value.id].totalPrice |default('') | number_format(2, '.', ',') }} €</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="machine-list__ca">
+                                            <button class="button machine-list__ca-button" onclick="selectMachine({{ value.id }});" data-id="{{ value.id }}">seleccionar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="configurer-notification" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header alert alert-info">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">No se ha encontrado ningua impresora que cumpla con los parametros de busqueda</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade"  data-backdrop="static" id="resumen" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-dialog-resumen" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Resumen contratación</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 js-contract-info-1"></div>
+                        <div class="col-md-6 js-contract-info-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 "></div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                            <button type="button" class="btn btn-primary pull-right js-go-to-adrress">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,39 @@
+# This file sets the configuration of the 'Product' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+#    site_name: 'Docutea'
+#    list:
+#        title: 'Product %%entity_label%%'
+#        actions:
+#            - { name: 'edit', label: '', icon: 'edit' }
+#            - { name: 'delete', label: '', icon: 'trash' }
+    entities:
+        # the configuration of this entity is very verbose because it's used as
+        # an example to show all the configuration options available for entities
+        # check out the configuration of the other entities to see how concise
+        # can be the configuration of your backend
+        StaticPages:
+            class: AppBundle\Entity\StaticPages
+            label: 'StaticPages'
+            list:
+                actions:
+                    - { name: 'edit', label: '', icon: 'edit' }
+                    - -delete
+                fields:
+                    - id
+                    - name
+                    - { property: 'title', label: 'title' }
+                    - { property: 'content', label: 'content' }
+            form:
+                actions:
+                    - -delete
+                fields:
+                    - { property: 'title', label: 'title' }
+                    - { property: 'content', type: 'ckeditor', label: 'content' }
+

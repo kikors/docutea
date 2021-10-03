@@ -1,0 +1,31 @@
+parameters:
+    tpv:
+        'Environment' : 'test'
+        'MerchantCode' : 'E3gEW9hJ3COtKc8kGxiS'
+        'Key' : '1HZT0sG1XRNL8QWXNmvD05DySIUFS+K3'
+        'Terminal' : '001'
+        'TransactionType' : '0'
+        'Currency' : '978'
+        'MerchantName' : 'DOCUTEA'
+        'Titular' : 'Miguel A. Cueva'
+        'ConsumerLanguage' : '001'
+        'SignatureVersion' : 'HMAC_SHA256_V1'
+    urlOK : 'http://dev.docutea.es/tpv/success'
+    urlKO : 'http://dev.docutea.es/tpv/denied'
+    merchantURL :  'https://sis.redsys.es/sis/realizarPago'
+#
+#parameters:
+#    tpv:
+#        'Environment' : 'real'
+#        'MerchantCode' : 'E3gEW9hJ3COtKc8kGxiS'
+#        'Key' : '1HZT0sG1XRNL8QWXNmvD05DySIUFS+K3'
+#        'Terminal' : '001'
+##        'TransactionType' : '0'
+#        'Currency' : '978'
+#        'MerchantName' : 'DOCUTEA'
+#        'Titular' : 'Miguel A. Cueva'
+#        'ConsumerLanguage' : '001'
+#        'SignatureVersion' : 'HMAC_SHA256_V1'
+#    urlOK : 'https://test.docutea.es/tpv/success'
+#    urlKO : 'https://test.docutea.es/tpv/denied'
+#    merchantURL :  'https://sis.redsys.es/sis/realizarPago'

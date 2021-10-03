@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+    <div class="large-container">
+        <div class="hero hero--commitment">
+            <div class="hero__container">
+                <div class="hero__inner">
+                    <img src="{{ asset('images/outlet.jpg') }}" class="hero__bg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="large-container large-container--white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="printer__idle-text_outlet">
+                        Docutea selecciona para ti los mejores equipos de los mejores fabricantes. Ofreciendo un
+                        porfolio que se ajusta a tus necesidades, sea cual sea tu volumen de trabajos y las necesidades
+                        de impresión, copia y escaneado.
+                    </div>
+                </div>
+            </div>
+
+            <div class="large-container large-container--pad">
+                <div class="container">
+                    <div class="row">
+                        <div id="machine-list-recomended">
+
+                            {% for product in products %}
+                            <div class="col-md-3 col-xs-12 padding-4">
+                                <div class="machine-list">
+                                   
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="div-thumbnail-wb">
+                                                <img src="/uploads/{{product.imagePerspective}}" alt="{{ product.nombre }}" class="img-thumbnail-wb"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="machine-list__name-outlet">{{ product.nombre }}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12">
+                                            <p>{{ product.description|slice(0, 88) }}...</p>
+                                        </div>                                    
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="machine-features align-outlet">
+                                            
+                                                
+                                                <ul class="iconic-list list-inline mT20 mB20">
+                                                {% if product.airPrint == true %}
+                                                    <li>
+                                                        <img src="{{ asset('images/icon-movil.png') }}" title="Impresión móvil" data-toggle="tooltip" data-placement="top">
+                                                    </li>
+                                                {% endif %}
+                                                {% if product.wifi == true %}
+                                                    <li>
+                                                        <img src="{{ asset('images/icon-wifi.png') }}" title="Conectividad Wi-Fi" data-toggle="tooltip" data-placement="top">
+                                                    </li>
+                                                {% endif %}
+                                                {% if product.cloud == true %}
+                                                    <li>
+                                                        <img src="{{ asset('images/icon-ethernet.png') }}" title="Conectividad Ethernet" data-toggle="tooltip" data-placement="top">
+                                                    </li>
+                                                {% endif %}
+                                                {% if product.nfc == true %}
+                                                    <li>
+                                                        <img src="{{ asset('images/icon-doble-cara.png') }}" title="Doble cara automático" data-toggle="tooltip" data-placement="top">
+                                                    </li>
+                                                {% endif %}
+                                                {% if product.sheet != '' %}
+                                                    <li class="pull-right">
+                                                        <a href="/uploads/product/sheet/{{ product.sheet }}" target="_blank">
+                                                            <img src="{{ asset('images/icon-pdf.png') }}" title="Descargar especificaciones técnicas" data-toggle="tooltip" data-placement="top">
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="price-oulet">
+                                                <div class="title-oulet">Precio: <strong>{{ (product.price + (product.price * product.taxes) /100)|number_format(2) }} €</strong><br><span>IVA incl.</span></div>
+                                                <div class="title-oulet-no-iva">Sin IVA: {{ product.price|number_format(2) }} € </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="divbtnaddcart">
+                                                <input type="hidden" id="quantity-{{ product.id }}" value="1">
+                                                <input type="hidden" id="productId-{{ product.id }}" value="{{ product.id }}">
+                                                <button class="addcart" data-id="{{ product.id }}">Añadir al carro</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

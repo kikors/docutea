@@ -1,0 +1,134 @@
+
+
+
+            <div class="large-container large-container--pad">
+                <div class="container">
+                    <div class="row">
+
+                        <div id="machine-list-recomended">
+                            {% for cartproduct in cart.cartProductsDTOs %}
+                            <div class="machine-list">
+
+                                {#{ cartproduct.cod }#}
+                                {#{ cartproduct.nombre }#}
+                                {#{ cartproduct.description }#}
+                                {#{ cartproduct.subtitle }#}
+                                
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="machine-list__name-name">{{ cartproduct.nombre }}</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-xs-12">
+                                        <div class="machine-features">
+                                        
+                                            <p>{{ cartproduct.description }}</p>
+                                            <ul class="iconic-list list-inline mT20 mB20">
+                                            {% if cartproduct.airPrint == true %}
+                                                <li>
+                                                    <img src="{{ asset('images/icon-movil.png') }}" title="Impresión móvil" data-toggle="tooltip" data-placement="top">
+                                                </li>
+                                            {% endif %}
+                                            {% if cartproduct.wifi == true %}
+                                                <li>
+                                                    <img src="{{ asset('images/icon-wifi.png') }}" title="Conectividad Wi-Fi" data-toggle="tooltip" data-placement="top">
+                                                </li>
+                                            {% endif %}
+                                            {% if cartproduct.cloud == true %}
+                                                <li>
+                                                    <img src="{{ asset('images/icon-ethernet.png') }}" title="Conectividad Ethernet" data-toggle="tooltip" data-placement="top">
+                                                </li>
+                                            {% endif %}
+                                            {% if cartproduct.nfc == true %}
+                                                <li>
+                                                    <img src="{{ asset('images/icon-doble-cara.png') }}" title="Doble cara automático" data-toggle="tooltip" data-placement="top">
+                                                </li>
+                                            {% endif %}
+                                            {% if cartproduct.sheet != '' %}
+                                                <li class="pull-right">
+                                                    <a href="{{ cartproduct.sheet }}" target="_blank">
+                                                        <img src="{{ asset('images/icon-pdf.png') }}" title="Descargar especificaciones técnicas" data-toggle="tooltip" data-placement="top">
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+                                            </ul>
+                                            <a href="{{ path('product_details', {'id' : cartproduct.id}) }}" class="mT20"> Ver detalles >></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-xs-12">
+                                        <img src="/uploads/{{cartproduct.imagePerspective}}" alt="{{ cartproduct.nombre }}" class="img-thumbnail my-4"/>
+                                    </div>
+
+                                    <div class="col-md-5 col-xs-12">
+                                        <div class="price-oulet">
+                                            <div class="title-oulet">Precio: {{ cartproduct.price }} €</div>
+                                            <div class="outlet-price-total">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="select-quantity">Cantidad: 
+                                                            <select class="select-quantity-outlet" name="quantity" id="quantity-{{ cartproduct.id }}">
+                                                                <option value="1" {% if cartproduct.quantity == 1  %} selected {% endif %}>1</option>
+                                                                <option value="2" {% if cartproduct.quantity == 2  %} selected {% endif %}>2</option>
+                                                                <option value="3" {% if cartproduct.quantity == 3  %} selected {% endif %}>3</option>
+                                                                <option value="4" {% if cartproduct.quantity == 4  %} selected {% endif %}>4</option>
+                                                                <option value="5" {% if cartproduct.quantity == 5  %} selected {% endif %}>5</option>
+                                                                <option value="6" {% if cartproduct.quantity == 6  %} selected {% endif %}>6</option>
+                                                                <option value="7" {% if cartproduct.quantity == 7  %} selected {% endif %}>7</option>
+                                                                <option value="8" {% if cartproduct.quantity == 8  %} selected {% endif %}>8</option>
+                                                                <option value="9" {% if cartproduct.quantity == 9  %} selected {% endif %}>9</option>
+                                                                <option value="10" {% if cartproduct.quantity == 0  %} selected {% endif %}>10</option>
+                                                            </select>
+                                                        </div>                                                   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="productId-{{ cartproduct.id }}" value="{{ cartproduct.id }}">
+                                            <button class="deletecart" value="{{ cartproduct.id }}">Eliminar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<!-- div class="container">
+    <div class="panel">
+        {% for cartproduct in cart.cartProductsDTOs %}
+            <div>
+                {{ cartproduct.cod }}
+                {{ cartproduct.nombre }}
+                {{ cartproduct.description }}
+                {{ cartproduct.subtitle }}
+                {{ cartproduct.price }}
+                {{ cartproduct.enabled }}
+                <img src="/uploads/{{cartproduct.imagePerspective}}" alt="{{ cartproduct.nombre }}" />
+                <img src="/uploads/{{cartproduct.imageFront}}" alt="{{ cartproduct.nombre }}" />
+                <img src="/uploads/{{cartproduct.imageLateral}}" alt="{{ cartproduct.nombre }}" />
+                <a href="{{ path('product_details', {'id' : cartproduct.id}) }}"> Ver detalles </a>
+                <!-- input type="number" name="quantity" id="quantity" value="{{ cartproduct.quantity }}" -->
+                <select class="storeProductQty" id="{{ cartproduct.id }}">
+                    <option value="1" {% if cartproduct.quantity == 1  %} selected {% endif %}>1</option>
+                    <option value="2" {% if cartproduct.quantity == 2  %} selected {% endif %}>2</option>
+                    <option value="3" {% if cartproduct.quantity == 3  %} selected {% endif %}>3</option>
+                    <option value="4" {% if cartproduct.quantity == 4  %} selected {% endif %}>4</option>
+                    <option value="5" {% if cartproduct.quantity == 5  %} selected {% endif %}>5</option>
+                </select>
+                <button class="deletecart" value="{{ cartproduct.id }}">Eliminar</button>
+                <input type="hidden" id="productId" value="{{ cartproduct.id }}">
+            </div>
+            <div> cantidad:{{ cartproduct.quantity }}</div>
+            <div> subtotal:{{ cartproduct.total }}</div>
+        {% endfor %}
+        <form action="{{ path('confirm_order') }}">
+            <input type="submit" value="Gestionar la Compra">
+        </form>
+        <div> total:{{ cart.totalPrice }}</div>
+    </div>
+</div-->
+
+

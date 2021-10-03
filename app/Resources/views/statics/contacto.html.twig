@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="large-container large-container--white large-container--pad contacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2 class="page__title">Contacto</h2>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="" placeholder="Nombre*" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="" placeholder="Apellidos">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="" placeholder="Empresa*" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="" placeholder="Cargo">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="" placeholder="Email*" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="" placeholder="Teléfono">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <p>¿En qué podemos ayudarte?</p>
+                                    <textarea class="form-control" rows="4" cols="50"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="button">Enviar</button>
+                    </form>
+                </div>
+
+                <div class="col-md-4">
+                    <ul class="contact-card list-unstyled">
+                        <li class="contact-card__item">
+                            <div class="contact-card__title">Dirección</div>
+                            <div class="contact-card__text">C/ Amado Nervo, 4 <br/>Madrid - 28007</div>
+                        </li>
+
+                        <li class="contact-card__item">
+                            <div class="contact-card__title">Teléfono</div>
+                            <!-- div class="contact-card__subtitle">Madrid</div-->
+                            <div class="contact-card__text phone">914 676 524</div>
+                            <!-- div class="contact-card__subtitle">Fuera de Madrid</div>
+                            <div class="contact-card__text phone">902909911</div -->
+                        </li>
+
+                        <li class="contact-card__item">
+                            <div class="contact-card__title">Mails</div>
+                            <div class="contact-card__subtitle">Atención al cliente</div>
+                            <div class="contact-card__text mail">notificaciones@docutea.es</div>
+                            <div class="contact-card__subtitle">Ayuda</div>
+                            <div class="contact-card__text mail">notificaciones@docutea.es</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <script>
+                        var map;
+                        var myLatLng = {lat: 40.4099384, lng: -3.6762569};
+                        function initMap() {
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 17,
+                                center: myLatLng
+                            });
+
+                            var marker = new google.maps.Marker({
+                                position: myLatLng,
+                                map: map,
+                                title: 'Hello World!'
+                            });
+                        }
+                    </script>
+                    <div id="map"></div>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwDxhazjT51FqstLx86MZuyIlqsMYmGsQ&callback=initMap" async defer></script>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="adress-form-container">
+        <div class="fos-page-title login">Indicar ubicación del dispositivo</div>
+        {{ form_start(form,{ 'attr': {'id': "adress-form",'data-direccion':user.address, 'data-poblacion': user.population, 'data-provincia':user.province, 'data-cp':user.cp,'data-contacto': user.owner, 'data-telefono':user.phone } }) }}
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="js-use-previous-data"> Igual que los datos de facturación
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    {{ form_widget(form.direccion,{ 'attr': {'class': "form-control",'placeholder': 'Dirección', 'required': 'required'} })  }}
+                    {{ form_errors(form.direccion) }}
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    {{ form_widget(form.poblacion,{ 'attr': {'class': "form-control",'placeholder': 'Población'} })  }}
+                    {{ form_errors(form.poblacion) }}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_widget(form.provincia,{ 'attr': {'class': "form-control",'placeholder': 'Provincia', 'required': 'required'} })  }}
+                    {{ form_errors(form.provincia) }}
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_widget(form.cp,{ 'attr': {'class': "form-control",'placeholder': 'CP', 'required': 'required'} })  }}
+                    {{ form_errors(form.cp) }}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    {{ form_widget(form.contacto,{ 'attr': {'class': "form-control",'placeholder': 'Persona de contacto', 'required': 'required'} })  }}
+                    {{ form_errors(form.contacto) }}
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    {{ form_widget(form.telefono,{ 'attr': {'class': "form-control",'placeholder': 'Teléfono', 'required': 'required'} })  }}
+                    {{ form_errors(form.telefono) }}
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    {{ form_row(form.aceptar, { 'attr': {'class': "button "},'label': 'Enviar' }) }}
+                    {#<button class="button register-btn js-send-adress">Enviar</button>#}
+                </div>
+            </div>
+
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+
+    <div class="modal fade"  data-backdrop="static" id="submit-adress" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Gracias por confiar en Docutea.</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <p>Hemos recibido correctamente tu solicitud.</p>
+                                <p>En breve recibirás un correo con los datos de tu contratación.</p>
+                                <p>A continuación, un gestor se pondrá en contacto contigo</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <button type="button" class="btn btn-primary js-submit-adress">Aceptar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

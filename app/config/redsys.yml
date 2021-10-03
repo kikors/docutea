@@ -1,0 +1,15 @@
+parameters:
+    tpv:
+        'Environment' : 'real'
+        'MerchantCode' : '066846940'
+        'Key' : '1HZT0sG1XRNL8QWXNmvD05DySIUFS+K3'
+        'Terminal' : '001'
+        'TransactionType' : '0'
+        'Currency' : '978'
+        'MerchantName' : 'DOCUTEA'
+        'Titular' : 'Miguel A. Cueva'
+        'ConsumerLanguage' : '001'
+        'SignatureVersion' : 'HMAC_SHA256_V1'
+    urlOK : 'https://www.docutea.es/tpv/success'
+    urlKO : 'https://www.docutea.es/tpv/denied'
+    merchantURL :  'https://sis.redsys.es/sis/realizarPago'

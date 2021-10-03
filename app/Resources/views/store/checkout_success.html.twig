@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="large-container large-container--white large-container--pad" id="shopping-cart-details">
+        <div class="beneficios">
+            {% if resumen.totalQuantity > 0 %}
+            <div class="row">
+                <div class="col-xs-12 col-md-5 desktop"><img src="{{ asset('images/benefit-slider-2.png') }}" class="img-responsive" alt="Todo inculuido" title="Todo inculuido"></div>
+                <div class="col-sm-12 col-md-7">
+                    <div class="contentBenefText">
+                        <h1><br><br>¡Enhorabuena, su pedido se ha registrado correctamente!</h1>
+                        <p><br><br>Te hemos enviado un email con el detalle de tu pedido. <br>En breve nos pondremos en contacto contigo.</p>
+                        <p>¡Un saludo y muchas gracias!</p>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="row">
+                    <div class="col-xs-12 col-md-5 desktop"><img src="{{ asset('images/benefit-slider-2.png') }}" class="img-responsive" alt="Todo inculuido" title="Todo inculuido"></div>
+                    <div class="col-sm-12 col-md-7">
+                        <div class="contentBenefText">
+                            <h1><br><br>Upss.... Ocurrió algún error</h1>
+                            <p><br><br>Si el problema persisite ponte en contacto con nosotros.</p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        {#{ dump(resumen.totalQuantity) }#}
+    </div>
+{% endblock %}
+
+
+

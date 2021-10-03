@@ -1,0 +1,51 @@
+# This file sets the configuration of the 'Product' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+    entities:
+        # the configuration of this entity is very verbose because it's used as
+        # an example to show all the configuration options available for entities
+        # check out the configuration of the other entities to see how concise
+        # can be the configuration of your backend
+        Product:
+            class: AppBundle\Entity\ProductForPersistence
+            label: 'Machine'
+            list:
+                fields:
+                    - id
+                    - { property: 'cod', label: 'cod' }
+                    - { property: 'nombre', label: 'Name' }
+                    - { property: 'imageFront', label: 'imageFront', type: 'image', base_path: '%app.path.product_images%' }
+                    - enabled
+                    - { property: 'price', format: '%.2f €', label: 'price', css_class: text-right }
+
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Basic Information', icon: 'pencil' }
+                    - { property: 'nombre',  label: 'Name' }
+                    - { property: 'subtitle',  label: 'subtitle' }
+                    - { property: 'description', label: 'description' }
+
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Product Details', icon: 'cube' }
+                    - { property: 'cod', label: 'cod', type_options: { required: true } }
+                    - { property: 'price', label: 'price', type: 'money', type_options: { currency: 'EUR' }, css_class: 'col-sm-3' }
+                    - { property: 'taxes', label: 'IVA', type: 'number', css_class: 'col-sm-3' }
+
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Manual de servicio', icon: 'paperclip' }
+                    - { property: 'sheetFile', label: 'Archivo', type: 'vich_file' }
+
+                    - { type: 'section', label: 'aditional info', icon: 'warning', help: 'aditional info help' }
+                    - { property: 'wifi', css_class: 'col-sm-3', label: 'wifi' }
+                    - { property: 'airPrint', css_class: 'col-sm-2', label: 'doble cara' }
+                    - { property: 'cloud', css_class: 'col-sm-2', label: 'ethernet' }
+                    - { property: 'nfc', css_class: 'col-sm-2', label: 'impresión móvil' }
+
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Attachments', icon: 'paperclip' }
+                    - { property: 'imageFrontFile', label: 'imageFrontFile', type: 'vich_image' }
+                    - { property: 'imageLateralFile', label: 'imageLateralFile', type: 'vich_image' }
+                    - { property: 'imagePerspectiveFile', label: 'imagePerspectiveFile', type: 'vich_image' }

@@ -1,0 +1,20 @@
+
+easy_admin:
+    entities:
+        CarePack:
+            class: AppBundle\Entity\CarePack
+            label: 'CarePack'
+            list:
+                fields:
+                    - description
+                    - maker
+                    - { property: 'duration', label: 'duration', css_class: text-right }
+                    - { property: 'price', format: '%.2f €', label: 'price', css_class: text-right }
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Basic Information', icon: 'pencil' }
+                    - { property: 'description', css_class: 'col-sm-6', label: 'description' , type_options: { required: true }}
+                    - { property: 'maker', css_class: 'col-sm-6', label: 'maker', type_options: { required: true } }
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Product Details', icon: 'cube' }
+                    - { property: 'duration', css_class: 'col-sm-6', label: 'duration', type_options: { required: true } }
+                    - { property: 'price', label: 'price', type: 'money', type_options: { currency: 'EUR' }, css_class: 'col-sm-6', type_options: { required: true } }

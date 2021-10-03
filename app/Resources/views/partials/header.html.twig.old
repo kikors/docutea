@@ -1,0 +1,99 @@
+<!-- nav class="top-navigation">
+    <div class="container">
+        <div class="row">
+            <ul class="top-navigation__list">
+                <li class="top-navigation__item">
+                    {% if app.user.username is defined %}
+                        <a href="{{ path('client_area') }}" class="top-navigation__link">
+                            Zona de Cliente | Bienvenido {{ app.user.username }}
+                        </a>
+                    {% else %}
+                        <a href="{{ path('client_area') }}" class="top-navigation__link">
+                            Zona de Cliente
+                        </a>
+                    {% endif %}
+                </li>
+                <li class="top-navigation__item">
+                    {% if app.user.username is defined %}
+                        <a href="{{ path('logout') }}" class="top-navigation__link">
+                            Cerrar sesión
+                        </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav-->
+<header class="header shrink">
+    <div class="container">
+        <div class="row">
+            <div class="header__inner">
+                <nav class="header-nav">
+                    
+                    <ul class="header-nav__list">
+                        <li class="header-nav__item"><a href="/" class="header-nav__link"><img src="{{ asset('images/home-icon.png') }}" alt="home" title="home"></a></li>
+                        <li class="header-nav__item"><a href="{{ path('configurer') }}" class="header-nav__link">Configurador</a></li>
+                        <li class="header-nav__item"><a href="{{ path('static_pages', {'nombrePagina':'compromisos'}) }}" class="header-nav__link">Compromisos</a></li>
+                        <li class="header-nav__item"><a href="{{ path('static_pages', {'nombrePagina':'beneficios'}) }}" class="header-nav__link">Beneficios</a></li>
+                        <li class="header-nav__item"><a href="{{ path('impresoras') }}" class="header-nav__link">Nuestros equipos</a></li>
+                        <li class="header-nav__item"><a href="http://blog.docutea.es/" class="header-nav__link">Blog</a></li>
+                    </ul>
+                </nav>
+                <div class="header-logo-container">
+                    <h1 class="header__logo"><a href="/"><img src="{{ asset('images/logoDocutea.png') }}" alt="Docutea" title="Docutea"></a></h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container_mobile">
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="javascript:void(0);" class="icon">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <nav class="header-nav">
+                    <ul class="header-nav__list">
+                        <li class="header-nav__item"><a href="/" class="header-nav__link">Home</a></li>
+                        <li class="header-nav__item"><a href="{{ path('configurer') }}" class="header-nav__link">Configurador</a></li>
+                        <li class="header-nav__item"><a href="{{ path('static_pages', {'nombrePagina':'compromisos'}) }}" class="header-nav__link">Compromisos</a></li>
+                        <li class="header-nav__item"><a href="{{ path('static_pages', {'nombrePagina':'beneficios'}) }}" class="header-nav__link">Beneficios</a></li>
+                        <li class="header-nav__item"><a href="{{ path('impresoras') }}" class="header-nav__link">Nuestros equipos</a></li>
+                        <li class="header-nav__item"><a href="http://blog.docutea.es/" class="header-nav__link">Blog</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-xs-4">
+                <div class="header-logo-mobile-container">
+                    <h1 class="header__logo"><a href="/"><img src="{{ asset('images/logoDocuteaMobile.png') }}" alt="Docutea" title="Docutea"></a></h1>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <ul class="top-navigation__list">
+                    <li class="top-navigation__item">
+                        {% if app.user.username is defined %}
+                            <a href="{{ path('client_area') }}" class="top-navigation__link">
+                                Zona de Cliente | Bienvenido {{ app.user.username }}
+                            </a>
+                        {% else %}
+                            <a href="{{ path('client_area') }}" class="top-navigation__link">
+                                Zona de Cliente
+                            </a>
+                        {% endif %}
+                    </li>
+                    {% if app.user.username is defined %}
+                        <li class="top-navigation__item">
+                            <a href="{{ path('logout') }}" class="top-navigation__link">
+                                Cerrar sesión
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+</header>

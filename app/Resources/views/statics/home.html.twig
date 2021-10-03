@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="large-container desktopSlider">
+        <div class="home-slider js-slick-slider">
+            <div class="home-slider__item"><img src="images/carrusel001_400.png"></div>
+            <div class="home-slider__item"><img src="images/carrusel002_400.png"></div>
+            <div class="home-slider__item"><img src="images/carrusel003_400.png"></div>
+            <div class="home-slider__item"><img src="images/carrusel004_400.png"></div>
+        </div>
+    </div>    
+    <div class="large-container mobileSlider">
+        <div class="home-slider js-slick-slider">
+            <div class="home-slider__item"><img src="images/iPhone_XR-XS_Max–1.png"></div>
+            <div class="home-slider__item"><img src="images/iPhone_XR-XS_Max–2.png"></div>
+            <div class="home-slider__item"><img src="images/iPhone_XR-XS_Max–3.png"></div>
+            <div class="home-slider__item"><img src="images/iPhone_XR-XS_Max–4.png"></div>
+        </div>
+    </div>
+
+       
+    <div class="container"> 
+        <div class="container-benef-resp">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="title">
+                        <h1>Beneficios</h1>
+                        <p>Lo tienes todo, de una manera sencilla y sin sustos.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="blocks">
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/site/beneficios">
+                            <div class="block">
+                                <img src="{{ asset('images/todo-incluido-icon.png') }}" alt="Todo incluído" title="Todo incluído">
+                                <h2>Todo incluído</h2>
+                                <p>No te preocupes de nada. Nuestros servicios incluyen hardware, software, consumibles, kits, mantentimiento...</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/site/beneficios">
+                            <div class="block">
+                                <img src="{{ asset('images/help-desl-icon.png') }}" alt="Help desk" title="Help desk">
+                                <h2>Help desk</h2>
+                                <p>Ponemos a tu disposición un Help desk multicanal para atenderte. Resolveremos tus dudas y cualquier incidencia.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/site/beneficios">
+                            <div class="block">
+                                <img src="{{ asset('images/24h-icon.png') }}" alt="Instalación 24h" title="Instalación 24h">
+                                <h2>Instalación 24h</h2>
+                                <p>Contamos con las herramientas necesariaspara poner en marcha en un plazo de 24h desde la formalización del acuerdo.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="title">
+                        <h1>Compromisos</h1>
+                        <p>Apostamos por la sostenibilidad: te ayudamos a desarrollar tu negocio respetando el entorno.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="blocks">
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/site/compromisos">
+                            <div class="block-grey">
+                                <img src="{{ asset('images/reciclemos-icon.png') }}" alt="Reciclemos" title="Reciclemos">
+                                <h2>Reciclemos</h2>
+                                <p>Una de las razones más importantes a la hora de seleccionar nuestros socios, son sus programas de reciclado de residuos.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/site/compromisos">
+                            <div class="block-grey">
+                                <img src="{{ asset('images/sostenible-icon.png') }}" alt="Sostenible" title="Sostenible">
+                                <h2>Sostenible</h2>
+                                <p>En Docutea estamos continuamente probando nuevas tecnologías de impresión.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/site/compromisos">
+                            <div class="block-grey">
+                                <img src="{{ asset('images/medio-ambiente-icon.png') }}" alt="Medio ambiente" title="Medio ambiente">
+                                <h2>Medio ambiente</h2>
+                                <p>Nuestros proveedores cumplen estrictamente las normativas vigentes en la fabricación y retirada de sus productos.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,182 @@
+.search-panel {
+	background-color:#f1f1f1;
+	padding:25px;
+}
+
+
+.js-printers {
+	.alert {
+		margin: 30px 0 70px;
+	}
+}
+
+.search__button {
+	height: 39px;
+}
+
+.printer__title {
+	color: #31689b;
+	font-size: 45px;
+	font-family: 'Nunito Sans', sans-serif;
+	font-weight: 400;
+	margin-top: 20px;
+}
+
+.printer__idle-text {
+	font-size: 14px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.js-ajax-item {
+	margin-top: 20px;
+	&:last-child {
+		margin-bottom: 60px;
+	}
+}
+
+.imp-slider{
+	&.slick-slider {
+		.slick-list{
+			border: 1px solid $main;
+		}
+		.slick-dots {
+			display: table!important;
+			position: relative;
+			bottom: auto;
+			text-align: left;
+			table-layout: fixed;
+			margin: 20px -5px 0;
+			li {
+				width: auto;
+				height: auto;
+				
+				display: table-cell;
+				padding: 0;
+				a {
+					border: 1px solid $main;
+					display: block;
+					text-align: center;
+					margin:5px;
+					
+					img {
+						width: 100%;
+						max-width: 100%;
+						height: auto;
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+.print-tab-nav{
+	padding-left:0;
+	li {
+		display:inline-block;;
+		.button {
+			border: 1px solid $main;
+			color:$main;
+			background: $white;
+			width: 100%;
+			height: 40px;
+			line-height:28px;
+		}
+		&.active {
+			.button{
+				background: $secondary;
+				border: 1px solid transparent;
+				color: $white;
+			}
+		}
+	}
+}
+
+.print-cost{
+	padding:15px 25px;
+	color:$white;
+	background: $secondary;
+	min-height: 140px;
+	&__title {
+		text-transform: uppercase;
+	}
+
+	&__price {
+
+	}
+}
+
+
+.thumb-dots{
+	margin: 20px -1%;
+	padding: 0;
+	list-style: none;
+
+	> li{
+		display: inline-block;
+		width: 23%;
+		margin: 0 1%;
+		border: 1px solid $main;
+
+		img {
+			max-width: 100%;
+		}
+	}
+}
+
+.iconic-list {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	margin-left: 0;
+	 li {
+		 text-align: center;
+		 border: 1px solid $main;
+		 margin-right: 10px;
+		 color: $main;
+		 width: 35px;
+		 height: 35px;
+		 align-items: center;
+		 display: inline-flex;
+		 a {
+			 text-decoration: none;
+		 }
+		 span {
+			 font-size: 30px;
+			 margin-left: -3px;
+		 }
+		 div {
+			 font-size: 10px;
+		 }
+	 }
+}
+
+.print__title {
+
+	h2 {
+		color: $main;
+		font-size: 36px;
+		font-weight: 100;
+	}
+	.tab-pane {
+		min-height: 160px;
+	}
+}
+
+.imp-print-cost {
+	background: $secondary;
+	color: $white;
+	padding: 15px 25px;
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+
+.adress-form-container {
+  background-color: #fff;
+  margin: 80px auto;
+  padding: 35px 80px;
+  width: 590px;
+  position: relative;
+}

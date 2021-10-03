@@ -1,0 +1,45 @@
+
+<header>
+    <div class="header">
+        <a href="/" class="logo"><img src="{{ asset('images/logoDocutea.png') }}" alt="Docutea" title="Docutea"></a>
+        <a href="/" class="logo-mobile"><img src="{{ asset('images/logoDocuteaMobile.png') }}" alt="Docutea" title="Docutea"></a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+
+        {% if app.user.username is defined %}
+            <a href="{{ path('logout') }}" class="menu-user">
+                <img src="{{ asset('images/cerrar-sesion-icon.png') }}" alt="Cerrar sesión" title="Cerrar sesión">
+            </a>
+        {% endif %}
+        {{ include('store/cart_resume.html.twig') }}
+        {% if app.user.username is defined %}
+            <a href="{{ path('client_area') }}" class="menu-user">
+                <!-- Bienvenido { # {app.user.username} # } -->
+                <img src="{{ asset('images/user-area-in-icon.png') }}" alt="Zona clientes" title="Zona clientes">
+            </a>
+        {% else %}
+            <a href="{{ path('client_area') }}" class="menu-user">
+                <img src="{{ asset('images/user-area-icon.png') }}" alt="Login" title="Login">
+            </a>
+        {% endif %}
+
+    </div>
+
+    <div class="main-menu">
+        <nav>
+            <ul>
+                <li><a href="/" class="header-nav__link">Home</a></li>
+                <li><a href="{{ path('configurer') }}">Configurador</a></li>
+                <li><a href="{{ path('static_pages', {'nombrePagina':'compromisos'}) }}">Compromisos</a></li>
+                <li><a href="{{ path('static_pages', {'nombrePagina':'beneficios'}) }}">Beneficios</a></li>
+                <li><a href="{{ path('static_pages', {'nombrePagina':'servicios'}) }}">Servicios</a></li>
+                <li><a href="{{ path('home_store') }}">Outlet</a></li>
+                <li><a href="{{ path('impresoras') }}">Nuestros equipos</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+<div class="headerResponsive">
+
+</div>

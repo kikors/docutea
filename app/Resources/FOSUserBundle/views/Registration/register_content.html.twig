@@ -1,0 +1,366 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% set provincias = [{
+    "id": "04",
+    "nm": "Almería"
+    }, {
+    "id": "11",
+    "nm": "Cádiz"
+    }, {
+    "id": "14",
+    "nm": "Córdoba"
+    }, {
+    "id": "18",
+    "nm": "Granada"
+    }, {
+    "id": "21",
+    "nm": "Huelva"
+    }, {
+    "id": "23",
+    "nm": "Jaén"
+    }, {
+    "id": "29",
+    "nm": "Málaga"
+    }, {
+    "id": "41",
+    "nm": "Sevilla"
+    }, {
+    "id": "22",
+    "nm": "Huesca"
+    }, {
+    "id": "44",
+    "nm": "Teruel"
+    }, {
+    "id": "50",
+    "nm": "Zaragoza"
+    }, {
+    "id": "33",
+    "nm": "Asturias"
+    }, {
+    "id": "07",
+    "nm": "Balears, Illes"
+    }, {
+    "id": "35",
+    "nm": "Palmas, Las"
+    }, {
+    "id": "38",
+    "nm": "Santa Cruz de Tenerife"
+    }, {
+    "id": "39",
+    "nm": "Cantabria"
+    }, {
+    "id": "05",
+    "nm": "Ávila"
+    }, {
+    "id": "09",
+    "nm": "Burgos"
+    }, {
+    "id": "24",
+    "nm": "León"
+    }, {
+    "id": "34",
+    "nm": "Palencia"
+    }, {
+    "id": "37",
+    "nm": "Salamanca"
+    }, {
+    "id": "40",
+    "nm": "Segovia"
+    }, {
+    "id": "42",
+    "nm": "Soria"
+    }, {
+    "id": "47",
+    "nm": "Valladolid"
+    }, {
+    "id": "49",
+    "nm": "Zamora"
+    }, {
+    "id": "02",
+    "nm": "Albacete"
+    }, {
+    "id": "13",
+    "nm": "Ciudad Real"
+    }, {
+    "id": "16",
+    "nm": "Cuenca"
+    }, {
+    "id": "19",
+    "nm": "Guadalajara"
+    }, {
+    "id": "45",
+    "nm": "Toledo"
+    }, {
+    "id": "08",
+    "nm": "Barcelona"
+    }, {
+    "id": "17",
+    "nm": "Girona"
+    }, {
+    "id": "25",
+    "nm": "Lleida"
+    }, {
+    "id": "43",
+    "nm": "Tarragona"
+    }, {
+    "id": "03",
+    "nm": "Alicante/Alacant"
+    }, {
+    "id": "12",
+    "nm": "Castellón/Castelló"
+    }, {
+    "id": "46",
+    "nm": "Valencia/València"
+    }, {
+    "id": "06",
+    "nm": "Badajoz"
+    }, {
+    "id": "10",
+    "nm": "Cáceres"
+    }, {
+    "id": "15",
+    "nm": "Coruña, A"
+    }, {
+    "id": "27",
+    "nm": "Lugo"
+    }, {
+    "id": "32",
+    "nm": "Ourense"
+    }, {
+    "id": "36",
+    "nm": "Pontevedra"
+    }, {
+    "id": "28",
+    "nm": "Madrid"
+    }, {
+    "id": "30",
+    "nm": "Murcia"
+    }, {
+    "id": "31",
+    "nm": "Navarra"
+    }, {
+    "id": "01",
+    "nm": "Araba/Álava"
+    }, {
+    "id": "48",
+    "nm": "Bizkaia"
+    }, {
+    "id": "20",
+    "nm": "Gipuzkoa"
+    }, {
+    "id": "26",
+    "nm": "Rioja, La"
+    }, {
+    "id": "51",
+    "nm": "Ceuta"
+    }, {
+    "id": "52",
+    "nm": "Melilla"
+    }]
+%}
+
+<div id="steps-title" class="fos-page-title">Registro</div>
+{#<form id="example-advanced-form" action="#">#}
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register js-fosuser-form'}}) }}
+    <h3>Registro</h3>
+    <fieldset>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    {{ form_widget(form.email,{ 'attr': {'class': "form-control",'placeholder': 'Email'} }) }}
+                    {{ form_errors(form.email) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_widget(form.plainPassword.first,{ 'attr': {'class': "form-control",'placeholder': 'Contraseña'} })  }}
+                    {{ form_errors(form.plainPassword.first) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_widget(form.plainPassword.second,{ 'attr': {'class': "form-control",'placeholder': 'Repetir Contraseña'} })  }}
+                    {{ form_errors(form.plainPassword.first) }}
+                </div>
+            </div>
+        </div>
+
+        <div>
+            ¿Ya estás registrado?<a href="{{ path('fos_user_security_login') }}">Inicia sesión</a>
+        </div>
+
+
+    </fieldset>
+
+    <h3>Datos Fiscales</h3>
+    <fieldset>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    {{ form_widget(form.name,{ 'attr': {'class': "form-control",'placeholder': 'Nombre / Empresa', 'required': 'required'} })  }}
+                    {{ form_errors(form.name) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_widget(form.cif,{ 'attr': {'class': "form-control",'placeholder': 'NIF / CIF', 'required': 'required'} })  }}
+                    {{ form_errors(form.cif) }}
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Dirección" id="dir-add" required>
+                </div>
+
+                <div class="form-group hidden">
+                    {{ form_widget(form.address,{ 'attr': {'class': "form-control",'placeholder': 'Dirección'} })  }}
+                    {{ form_errors(form.address) }}
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <input class="form-control" type="text" placeholder="Número" id="dir-num">
+                </div>
+                <div class="col-md-4">
+                    <input class="form-control" type="text" placeholder="Piso" id="dir-piso">
+                </div>
+                <div class="col-md-4">
+                    <input class="form-control" type="text" placeholder="Escalera" id="dir-esc">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <select class="form-control" id="dir-prov">
+                        <option value="0" selected disabled>Provincia</option>
+                        {% for key,value in provincias|sort %}
+                            <option value="{{ value.nm }}">{{ value.nm }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" placeholder="Código postal" id="dir-cp">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <input class="form-control" type="text" placeholder="Teléfono" required>
+                </div>
+            </div>
+        </div>
+
+
+        {#<label for="name-2">First name *</label>#}
+        {#<input id="name-2" name="name" type="text" class="required">#}
+        {#<label for="surname-2">Last name *</label>#}
+        {#<input id="surname-2" name="surname" type="text" class="required">#}
+        {#<label for="email-2">Email *</label>#}
+        {#<input id="email-2" name="email" type="text" class="required email">#}
+        {#<label for="address-2">Address</label>#}
+        {#<input id="address-2" name="address" type="text">#}
+        {#<label for="age-2">Age (The warning step will show up if age is less than 18) *</label>#}
+        {#<input id="age-2" name="age" type="text" class="required number">#}
+        {#<p>(*) Mandatory</p>#}
+    </fieldset>
+
+    <h3>Datos de facturación</h3>
+    <fieldset>
+        <div>
+
+            <!-- Nav tabs -->
+            <ul class="facturation-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#tarjeta" aria-controls="tarjeta" role="tab" data-toggle="tab">Tarjeta de crédito</a></li>
+                <li role="presentation"><a href="#bank" aria-controls="bank" role="tab" data-toggle="tab">o cuenta bancaria</a></li>
+            </ul>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        {{ form_widget(form.owner,{ 'attr': {'class': "form-control",'placeholder': 'Nombre del titular', 'required': 'required'} })  }}
+                        {{ form_errors(form.owner) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_widget(form.ownerLastname,{ 'attr': {'class': "form-control",'placeholder': 'Apellidos del titular', 'required': 'required'} })  }}
+                        {{ form_errors(form.ownerLastname) }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="tarjeta">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{ form_widget(form.cardNumber,{ 'attr': {'class': "form-control",'placeholder': 'Número de tarjeta', 'required': 'required'} })  }}
+                                {{ form_errors(form.cardNumber) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_widget(form.cardExpiration,{ 'attr': {'class': "form-control",'placeholder': 'Mes / Año', 'required': 'required'} })  }}
+                                {{ form_errors(form.cardExpiration) }}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                falta
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_widget(form.card_code,{ 'attr': {'class': "form-control",'placeholder': 'CCV', 'required': 'required'} })  }}
+                                {{ form_errors(form.card_code) }}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="bank">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{ form_widget(form.ibanCode,{ 'attr': {'class': "form-control",'placeholder': 'IBAN', 'required': 'required'} })  }}
+                                {{ form_errors(form.ibanCode) }}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </fieldset>
+
+    {#<div>#}
+        {#<input type="submit" value="{{ 'registration.submit'|trans }}" />#}
+    {#</div>#}
+
+
+{# don't render unrendered fields #}
+{{ form_end(form, {'render_rest': false}) }}
+
+<div id="step-count">1 de 3</div>
+
+
+
+{#{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}#}
+    {#{{ form_widget(form) }}#}
+{#<div>#}
+    {#<input type="submit" value="{{ 'registration.submit'|trans }}" />#}
+{#</div>#}
+{#{{ form_end(form) }}#}

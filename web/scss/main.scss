@@ -1,0 +1,439 @@
+@import 'bootstrap';
+@import 'slick-carousel';
+@import 'icon-font';
+
+@font-face {
+  font-family: 'Etna';
+  src: url('../fonts/Etna.eot');
+  src: url('../fonts/Etna.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Etna.woff') format('woff'),
+  url('../fonts/Etna.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Giorgio';
+  src: url('../fonts/Giorgio.eot');
+  src: url('../fonts/Giorgio.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Giorgio.woff') format('woff'),
+  url('../fonts/Giorgio.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Giorgio';
+  src: url('../fonts/Giorgio-Thin.eot');
+  src: url('../fonts/Giorgio-Thin.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Giorgio-Thin.woff') format('woff'),
+  url('../fonts/Giorgio-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+
+@mixin clear() {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+//Colors
+$white: #fff;
+$dark: #020000;
+$main: #31689b;
+$main-ligth: #7595b0;
+$secondary: #d7d2c4;
+
+body{
+  background-color: #f1f1f1;
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+  font-size: 12px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tooltip {
+  min-width:100px;
+}
+
+.tooltip-inner{
+  background-color: #e5e5e4;
+  color: #31689b;
+}
+
+.tooltip.top .tooltip-arrow{
+  border-top-color: #e5e5e4;
+}
+.tooltip.bottom .tooltip-arrow{
+  border-bottom-color: #e5e5e4;
+}
+.tooltip.left .tooltip-arrow{
+  border-left-color: #e5e5e4;
+}
+.tooltip.right .tooltip-arrow{
+  border-right-color: #e5e5e4;
+}
+
+.shrink{
+  padding: 20px 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  margin: 2px 0 0;
+}
+
+.row-height {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+}
+.col-height {
+  display: table-cell;
+  float: none;
+  height: 100%;
+}
+.col-top {
+  vertical-align: top;
+}
+.col-middle {
+  vertical-align: middle;
+}
+.col-bottom {
+  vertical-align: bottom;
+}
+
+
+.large-container{
+  margin: 0 auto;
+  max-width: 1365px;
+  &--white {
+    background-color:#fff;
+  }
+
+  &--pad {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  &--grey {
+    background-color: #e5e5e4;
+  }
+}
+
+.res-img{
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+p {
+  font-size: 14px;
+}
+
+.section-title {
+  font-size: 36px;
+  color: $main;
+  font-weight:200;
+  margin-bottom: 38px;
+  &--alt {
+    color: $white;
+  }
+}
+
+
+.page__title {
+  color: $main;
+  font-size: 60px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+}
+
+#loadingModal {
+  .modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+
+.home-slider {
+  .slick-dots {
+    bottom:10px;
+  }
+}
+
+.static-container {
+  h1 {
+    margin-bottom: 35px;
+  }
+  p {
+    margin-bottom: 25px;
+  }
+}
+
+@import 'top-nav';
+@import 'configurator';
+@import 'configurer-slider';
+@import 'header';
+@import 'benefits';
+@import 'commitment';
+@import 'heros';
+@import 'printers';
+@import 'forms';
+
+@import 'fosuser';
+@import 'roundslider';
+
+
+.page-footer {
+  color: $main;
+  margin-top: auto;
+
+  a {
+    color: $main;
+    text-decoration: none;
+  }
+
+  .list-unstyled {
+    margin-bottom: 15px;
+    li {
+      padding: 3px 0;
+    }
+    .social-list {
+      margin-top: 10px;
+      margin-left: 0;
+      li {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.social-list {
+  > li {
+    padding-left: 0;
+    a {
+      color: #fff;
+      display: block;
+      width: 30px;
+      height: 30px;
+      font-size: 19px;
+      line-height: 35px;
+      text-align: center;
+      background-color: $main;
+      &.linkedin {
+        background-color: #2397d0;
+      }
+      &.twitter {
+        background-color: #45beee;
+      }
+    }
+  }
+}
+
+.list-footer-2 {
+  display: inline-block;
+  text-align: left;
+}
+
+#map {
+  height: 685px;
+  margin-top: 60px;
+}
+
+.contacto {
+  .form-control {
+    border:0;
+    border-bottom:1px solid $main;
+    border-radius: 0;
+    box-shadow: none;
+    color: $main;
+  }
+
+  textarea.form-control{
+    border:1px solid $main;
+    height: 178px;
+  }
+
+  .form-group{
+    margin-bottom: 25px;
+  }
+
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    $main;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    $main;
+    opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:   $main;
+    opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    $main;
+  }
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color:    $main;
+  }
+}
+
+.contact-card {
+  background: $main;
+  padding: 0 63px;
+}
+
+.contact-card__item {
+  padding: 30px 0;
+  border-bottom: 1px solid $white;
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.contact-card__title {
+  font-size: 36px;
+  font-weight: 200;
+  color: $secondary;
+}
+
+.contact-card__subtitle {
+  color: $secondary;
+  font-weight: 300;
+}
+
+.contact-card__text{
+  color: $white;
+  font-size: 14px;
+  &.phone {
+    font-size: 24px;
+  }
+  &.mail {
+    font-size: 18px;
+  }
+}
+
+.flex-row{
+  display: flex;
+  justify-content: space-between;
+  img {
+    max-width: 120px;
+  }
+}
+
+.flex-left {
+}
+
+.flex-right {
+ }
+
+.flex-center {
+}
+
+@media (min-width: 768px) {
+  .modal-dialog-resumen {
+    width: 90%;
+    max-width: 1280px;
+  }
+}
+
+
+//$main
+
+
+#resumen,
+#submit-adress{
+
+  .modal-content {
+    border-radius: 0;
+  }
+  .modal-header {
+    text-align: center;
+    border: 0;
+
+  }
+
+  .modal-title {
+    color: $main;
+    font-size: 36px;
+  }
+
+  h3 {
+    color: $main;
+    border-bottom: 1px solid $main;
+  }
+
+  .btn {
+    background-color: $main;
+    border-radius: 0;
+    width: 49%;
+    height: 45px;
+    margin-top: 20px;
+  }
+
+  .modal-footer {
+    text-align: center;
+    border: 0;
+  }
+
+}
+
+.register-btn {
+  width: 150px;
+  height:43px;
+}
+
+.icon-nfc ,
+.icon-cloud {
+  img {
+    width: 37px;
+    height:auto;
+  }
+}
+
+.relative {
+  position: relative;
+}
+.recomended-iconic-list {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+
+  li {
+    text-align: center;
+    border: 1px solid $main;
+    margin-right: 10px;
+    color: $main;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    display: inline-flex;
+    &:last-child {
+      margin-right: 0;
+    }
+    a {
+      text-decoration: none;
+      color: $main;
+    }
+    span {
+      font-size: 30px;
+      margin-left: -3px;
+    }
+    div {
+      font-size: 10px;
+    }
+  }
+}

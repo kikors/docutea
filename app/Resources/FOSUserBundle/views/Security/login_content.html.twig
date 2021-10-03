@@ -1,0 +1,292 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% set provincias = [{
+"id": "04",
+"nm": "Almería"
+}, {
+"id": "11",
+"nm": "Cádiz"
+}, {
+"id": "14",
+"nm": "Córdoba"
+}, {
+"id": "18",
+"nm": "Granada"
+}, {
+"id": "21",
+"nm": "Huelva"
+}, {
+"id": "23",
+"nm": "Jaén"
+}, {
+"id": "29",
+"nm": "Málaga"
+}, {
+"id": "41",
+"nm": "Sevilla"
+}, {
+"id": "22",
+"nm": "Huesca"
+}, {
+"id": "44",
+"nm": "Teruel"
+}, {
+"id": "50",
+"nm": "Zaragoza"
+}, {
+"id": "33",
+"nm": "Asturias"
+}, {
+"id": "07",
+"nm": "Balears, Illes"
+}, {
+"id": "35",
+"nm": "Palmas, Las"
+}, {
+"id": "38",
+"nm": "Santa Cruz de Tenerife"
+}, {
+"id": "39",
+"nm": "Cantabria"
+}, {
+"id": "05",
+"nm": "Ávila"
+}, {
+"id": "09",
+"nm": "Burgos"
+}, {
+"id": "24",
+"nm": "León"
+}, {
+"id": "34",
+"nm": "Palencia"
+}, {
+"id": "37",
+"nm": "Salamanca"
+}, {
+"id": "40",
+"nm": "Segovia"
+}, {
+"id": "42",
+"nm": "Soria"
+}, {
+"id": "47",
+"nm": "Valladolid"
+}, {
+"id": "49",
+"nm": "Zamora"
+}, {
+"id": "02",
+"nm": "Albacete"
+}, {
+"id": "13",
+"nm": "Ciudad Real"
+}, {
+"id": "16",
+"nm": "Cuenca"
+}, {
+"id": "19",
+"nm": "Guadalajara"
+}, {
+"id": "45",
+"nm": "Toledo"
+}, {
+"id": "08",
+"nm": "Barcelona"
+}, {
+"id": "17",
+"nm": "Girona"
+}, {
+"id": "25",
+"nm": "Lleida"
+}, {
+"id": "43",
+"nm": "Tarragona"
+}, {
+"id": "03",
+"nm": "Alicante/Alacant"
+}, {
+"id": "12",
+"nm": "Castellón/Castelló"
+}, {
+"id": "46",
+"nm": "Valencia/València"
+}, {
+"id": "06",
+"nm": "Badajoz"
+}, {
+"id": "10",
+"nm": "Cáceres"
+}, {
+"id": "15",
+"nm": "Coruña, A"
+}, {
+"id": "27",
+"nm": "Lugo"
+}, {
+"id": "32",
+"nm": "Ourense"
+}, {
+"id": "36",
+"nm": "Pontevedra"
+}, {
+"id": "28",
+"nm": "Madrid"
+}, {
+"id": "30",
+"nm": "Murcia"
+}, {
+"id": "31",
+"nm": "Navarra"
+}, {
+"id": "01",
+"nm": "Araba/Álava"
+}, {
+"id": "48",
+"nm": "Bizkaia"
+}, {
+"id": "20",
+"nm": "Gipuzkoa"
+}, {
+"id": "26",
+"nm": "Rioja, La"
+}, {
+"id": "51",
+"nm": "Ceuta"
+}, {
+"id": "52",
+"nm": "Melilla"
+}] %}
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+
+<div class="row">
+    {% set canRegister = app.request.headers.get('referer')|split('/')|last == 'configurer' %}
+
+    {% if canRegister %}
+        <div class="col-md-8">
+            <div class="fos-page-title login">Registro</div>
+            <form method="post" class="js-validate-form">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Nombre/Empresa" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="cif" name="cif" placeholder="NIF/CIF/NIE" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="address" name="address" placeholder="Dirección" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="population" name="population" placeholder="Población" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-control" id="province" name="province">
+                                <option value="0" selected disabled>Provincia</option>
+                                {% for key,value in provincias %}
+                                    <option value="{{ value.nm }}">{{ value.nm }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" id="cp" name="cp" placeholder="CP" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" id="owner" name="owner" placeholder="Persona de contacto" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="phone" name="phone" placeholder="Teléfono" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="email" name="email" placeholder="Email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="pasword" name="pasword" placeholder="Contraseña" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input input type="password" id="repeatPassword" name="repeatPassword" placeholder="Repetir Contraseña" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group text-left checkLegalesConfigurer">
+                    <input type="checkbox" name="aceptarComunicacion" id="checkLegalesConf"> Acepto recibir comunicaciones exclusivamnete de docutea.es.
+                </div>
+
+                <div class="form-group text-left checkLegalesConfigurer">
+                    <input type="checkbox" name="checkLegalesConf" id="checkLegalesConf"> He leído y acepto la <a href="{{ path('static_pages', {'nombrePagina':'politica-de-privacidad'}) }}" target="_blank">politica de privacidad</a> y las <a href="{{ path('static_pages', {'nombrePagina':'condiciones-de-contratacion'}) }}" target="_blank">condiciones de contratación</a>.
+                </div>
+                <div class="form-group text-left">
+                    <input type="submit" class="button register-btn-configure" value="enviar">
+                </div>
+            </form>
+        </div>
+    {% endif %}
+
+    <div class=" {% if canRegister %}col-md-4{% endif %}">
+        <div class="fos-page-title login">Soy cliente</div>
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}"
+                               placeholder="Email"/>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" id="password" name="_password" class="form-control" required
+                               placeholder="Contraseña"/>
+                    </div>
+
+                    <div class="text-left">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                        <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                    </div>
+
+                    <div class="form-group text-left">
+                        <input type="submit" id="_submit" name="_submit" class="button login-btn"
+                               value="Iniciar sesión"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="text-left">
+            ¿Has olvidado tu <a href="">contraseña</a>?
+        </div>
+    </div>
+</div>
+
+<div class="modal fade"  data-backdrop="static" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <img src="{{ asset('images/ajax-loader.gif') }}" alt="Imprimia">
+    </div>
+</div>
+
+
+
+
+
+
+
+{#<div>#}
+    {#¿No estás dado de alta? <a href="{{ path('fos_user_registration_register') }}">Registrarse</a>#}
+{#</div>#}

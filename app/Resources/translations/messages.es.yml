@@ -1,0 +1,182 @@
+# Check out the 'messages_en.yml' for an explanation about the best practices
+# recommended to translate your backend efficiently.
+
+# main menu
+menu.sales.list:          Listado de máquinas para venta
+menu.product.list:        Listado de Productos
+menu.costumers.list:      Listado de Clientes
+menu.user.list:           Listado de Usuarios
+menu.category:            Categorías
+menu.purchase:            Ventas
+menu.format.list:         Formatos
+menu.functionality.list:  Funcionalidad
+menu.technology.list:     Tecnología
+menu.toner.capacity:      Capacidad del Toner
+menu.toner.color:         Color del Toner
+menu.toner.type:          Tipo del Toner
+menu.maker:               Fabricante
+menu.part.type:           Tipos de Partes y Piezas
+menu.toner.list:          Listado de Toners
+menu.parts.list:          Listado de Piezas
+menu.static.list:         Páginas estáticas
+menu.sales_order.list:    Listado de  Contratos
+menu.drum.list:           Listado de Tambores
+menu.carepack.list:       Listado de CarePacks
+menu.carepack.profit:     Profit por Periodo
+menu.page.range:          Rangos de Página
+menu.chromatype.list:     Tipo de Impresora
+menu.sent_consumables.list: Consumibles enviados
+menu.invoice.list: Facturas
+
+# entity names, labels and titles
+Machine: Impresora
+Categories: Categorías
+Category: Categoría
+Customers: Clientes
+Product: Producto
+Products: Productos
+User: Usuario
+Toner: Toner
+Part: Piezas
+StaticPages: Páginas Estáticas
+
+# entity properties
+
+maker: Fabricante
+code: Código
+cod: Código
+description: Descripción
+recomendedVolume: Volumen Fabric.
+aditionalInfo: Información Adicional
+pageRange: Rango de Selección
+technology: Tecnología
+format: Formato
+price: Precio
+installation Price: Instalación
+functionality: Funcionalidad
+chromaType: Color/BN
+color: Color
+capacity: Capacidad
+pageVolume: No. de páginas
+aditionalInformation: Información adicional
+content: Contenido
+imageFrontFile: Frontal
+imageLateralFile: Lateral
+imagePerspectiveFile: Perspectiva
+carePack: Care Pack
+fixed price calculate: Elementos del Precio Fijo
+fixed price calculate help: Estos datos se utilizan para el cálculo del precio fijo
+variable price calculate: Elementos del Precio Variable
+variable price calculate help: Estos datos se utilizan para el cálculo del precio Variable
+Page profit: Profit por Página(%)
+profit: Profit (%)
+monitorization Price: Monitorización
+adminColorPageCost: Costo P. Color (€)
+colorPageCost: Precio P. Color (€)
+adminBlackPageCost: Costo P. Negro (€)
+blackPageCost: Precio P. Negro (€)
+
+configurer settings: Datos para el Configurador
+configurer data help: Estos datos serán utilizados en el configurador
+aditional info: Información Adicional
+aditional info help: Información que no influye en los cáculos
+
+costumer: Cliente
+acceptedAt: Fecha de Aprobación
+createdAt: Fecha de Creación
+state: Estado
+SalesOrder: Ordenes de Venta
+machine: Impresora
+years: Años
+
+Attachments: Imagenes adjuntas
+Billing address: Dirección de facturación
+Buyer: Comprador
+Contract: Contrato
+Created at: Fecha creación
+Delivery date: Fecha de entrega
+Delivery hour: Hora de entrega
+Description: Descripción
+EAN-13: EAN-13
+Ean: EAN-13
+Email: Email
+Enabled: Activado
+Features: Funcionalidades
+Guid: GUID
+ID: ID
+Image file: Archivo de la imagen
+Image: Imagen
+Is active: ¿Activo?
+Label: Título
+Name: Nombre
+Parent category: Categoría Padre
+Price: Precio
+Published: Publicado
+Purchase: Compra
+Purchased items: Productos comprados
+Purchases: Compras
+Shipping: Envío
+Tags: Etiquetas
+Total: Total
+Username: Nombre de usuario
+
+Surname: Apellidos
+Address: Dirección
+Owner: Nombre del Titular
+Owner lastname: Apellidos del Titular
+Iban code: IBAN
+Card number: Número
+Card expiration: Fecha de Expiración
+Card code: Código
+Facturation Info: Información de Facturación
+
+duration: Duración (meses)
+salesOrder: Orden de venta
+SentConsumables: Consumibles Enviados
+sentAt: Fecha de Envio
+imageFront: Imagen
+stock: Existencia
+
+# help messages
+EAN-13 valid code. Leave empty if unknown.: Introduce un código EAN-13 válido. Déjalo vacío si no dispones del código.
+
+# messages that contain variables
+'Product %entity_label%': 'Producto %entity_label%'
+
+# misc. messages
+Basic Information: Información Básica
+Account Information: Información de la cuenta
+Advanced Settings: Opciones avanzadas
+Basic information: Información básica
+Contact Information: Información de contacto
+Contract file: Archivo del contrato
+Delivery Details: Información de la entrega
+Legal Information: Información legal
+Product Details: Información del producto
+Purchase Details: Información de la compra
+Transactions History: Historial de transacciones
+Prices Information: Información de Precios
+Consumables Information: Información de Consumibles
+
+# entity Sales Order
+contractNumber: Númer de Contrato
+costumer: Cliente
+costumerAddress: Ubicación
+pages: Páginas
+colorpercent: Páginas Color
+fixedPrice: Precio Fijo
+variablePrice: Precio Variable
+monthPrice: Cuota Mensual
+pageColorPrice: Precio Pag. Color
+pageBlackPrice: Precio Pag. B/N
+profitDuration: Profit Duración Contrato
+tonerYearAmountColor: Toners Color A Enviar (Anual)
+tonerYearAmountBlack: Toners B/N A Enviar (Anual)
+sentConsumables: Consumibles Enviados
+profitFixed: Profit del Fijo
+profitVariable: Profit del Variable
+priceTonerColor: Precio Toner Color
+priceTonerBlack: Precio Toner B/N
+serialNumber: Número de Serie
+subtitle: Subtítulo
+

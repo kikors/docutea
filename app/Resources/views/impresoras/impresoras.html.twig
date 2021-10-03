@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="large-container large-container--white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 class="printer__title">Impresoras y Multifuncionales</h2>
+                </div>
+                <div class="col-md-7">
+                    <div class="printer__idle-text">
+                        Docutea selecciona para ti los mejores equipos de los mejores fabricantes. Ofreciendo un
+                        porfolio que se ajusta a tus necesidades, sea cual sea tu volumen de trabajos y las necesidades
+                        de impresión, copia y escaneado.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="search-panel">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="select">
+                                    <label for="maker"></label><select id="maker">
+                                        {% for key,value in makerList %}
+                                            <option value="{{ value.id }}" {% if value.id == makerSelected.id %} selected {% endif %}>{{ value.description }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="select">
+                                    <label for="chroma"></label><select id="chroma">
+                                        {% for key,value in chromaList %}
+                                            <option value="{{ value.id }}" {% if value.id == chromaSelected.id %} selected {% endif %}>{{ value.description }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="select">
+                                    <label for="functionality"></label><select id="functionality">
+                                        {% for key,value in functionalityList %}
+                                            <option value="{{ value.id }}" {% if value.id == functionalitySelected.id %} selected {% endif %}>{{ value.description }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="select">
+                                    <label for="format"></label><select id="format">
+                                        {% for key,value in formatList %}
+                                            <option value="{{ value.id }}" {% if value.id == formatSelected.id %} selected {% endif %}>{{ value.description }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-6">
+                                <button class="button btn-block search__button js-printer-search">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-md-offset-1">
+                    <div class="js-slick-slider banner-slider">
+                        <div><img src='{{ asset('images/mini001.jpg') }}' class="hero__bg"></div>
+                        <div><img src='{{ asset('images/mini002.jpg') }}' class="hero__bg"></div>
+                        <div><img src='{{ asset('images/mini003.jpg') }}' class="hero__bg"></div>
+                        <div><img src='{{ asset('images/mini004.jpg') }}' class="hero__bg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="js-printers">
+                <div class="js-ajax-list">
+                    {% for key,value in machineList %}
+                        <div class="js-ajax-item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="js-thumb-slider imp-slider">
+                                        <div data-thumb="uploads{{ asset(value.imageFront) }}"><img
+                                                    src="uploads{{ asset(value.imageFront) }}" class="res-img"></div>
+                                        <div data-thumb="uploads{{ asset(value.imagePerspective) }}"><img
+                                                    src="uploads{{ asset(value.imagePerspective) }}" class="res-img">
+                                        </div>
+                                        <div data-thumb="uploads{{ asset(value.imageLateral) }}"><img
+                                                    src="uploads{{ asset(value.imageLateral) }}" class="res-img"></div>
+                                    </div>
+
+                                    <div>
+                                        <ul class="iconic-list list-inline">
+                                            {% if value.airPrint == true %}
+                                                <li data-toggle="tooltip" data-placement="top"
+                                                    title="Doble cara automático">
+                                                    <span class="icon-doc"></span>
+                                                </li>
+                                            {% endif %}
+                                            {% if value.wifi == true %}
+                                                <li data-toggle="tooltip" data-placement="top"
+                                                    title="Conectividad Wi-Fi">
+                                                    <span class="icon-wifi"></span>
+                                                </li>
+                                            {% endif %}
+                                            {% if value.cloud == true %}
+                                                <li data-toggle="tooltip" data-placement="top"
+                                                    title="Conectividad Ethernet">
+                                                    <span class="icon-net"></span>
+                                                </li>
+                                            {% endif %}
+                                            {% if value.nfc == true %}
+                                                <li data-toggle="tooltip" data-placement="top" title="Impresión móvil">
+                                                    <span class="icon-device"></span>
+                                                </li>
+                                            {% endif %}
+                                            {% if value.sheet != '' %}
+                                                <li data-toggle="tooltip" data-placement="top"
+                                                    title="Descargar especificaciones técnicas">
+                                                    <a href="{{ pdfroute ~ value.sheet }}" target="_blank">
+                                                        <span class="icon-pdf"></span>
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="print__title">
+                                        <div>
+                                            <h2>{{ value.description }}</h2>
+                                            <div class="js-machine-subtitle">{{ value.aditionalInfo|raw }}</div>
+                                        </div>
+                                    </div>
+
+                                    <button class="js-select-printer button" data-id="{{ value.id }}">Seleccionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

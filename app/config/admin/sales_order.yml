@@ -1,0 +1,110 @@
+# This file sets the configuration of the 'Product' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+    entities:
+        # the configuration of this entity is very verbose because it's used as
+        # an example to show all the configuration options available for entities
+        # check out the configuration of the other entities to see how concise
+        # can be the configuration of your backend
+        SalesOrder:
+            class: AppBundle\Entity\SalesOrder
+            label: 'SalesOrder'
+#            disabled_actions: ['new', 'edit']
+            list:
+                actions:
+                  - { name: 'terminate', icon: 'archive', label: '' }
+                  - { name: 'conciliation', icon: 'money', label: '' }
+                fields:
+                    - contractNumber
+                    - { property: 'costumer', label: 'costumer'}
+                    - { property: 'machine', label: 'machine' }
+                    - serialNumber
+                    - { property: 'state', label: 'state' }
+                    - { property: 'duration', format: '%.0f Meses', label: 'duration', css_class: text-right }
+                    - { property: 'monthPrice', format: '%.2f €', label: 'Precio Mensual', css_class: text-right }
+                    - { property: 'variablePrice', format: '%.2f €', label: 'variablePrice', css_class: text-right }
+                    - { property: 'fixedPrice', format: '%.2f €', label: 'fixedPrice', css_class: text-right }
+                    - { property: 'acceptedAt', type: 'date', label: 'acceptedAt' }
+                    - { property: 'parent', label: 'parent' }
+                    - { property: 'resume', template: ':easy_admin:resume.html.twig', base_path: '%app.path.resume_files%' }
+#                    - { property: 'resume', label: 'Resumen', type: 'pdf', base_path: '%app.path.resume_files%' }
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Basic Information', icon: 'book' }
+                    - { property: 'contractNumber', css_class: 'col-sm-4', label: 'contractNumber', type_options: { disabled: true } }
+                    - { property: 'costumer', css_class: 'col-sm-8', label: 'costumer', type_options: { disabled: true } }
+                    - { property: 'costumerAdress', css_class: 'col-sm-12', label: 'costumerAddress', type_options: { disabled: true } }
+                    - { property: 'machine', css_class: 'col-sm-8', label: 'machine'}
+                    - { property: 'serialNumber', css_class: 'col-sm-4', label: 'serialNumber'}
+                    - { property: 'duration', css_class: 'col-sm-3', label: 'duration', type_options: { disabled: true } }
+#                    - { property: 'pages', css_class: 'col-sm-3', label: 'pages'}
+                    - { property: 'colorPercent', css_class: 'col-sm-3', label: 'colorpercent', , type: 'percent', type_options: { disabled: true } }
+                    - { property: 'state', css_class: 'col-sm-3', label: 'state', type_options: { disabled: true } }
+                    - { property: 'parent', css_class: 'col-sm-3', label: 'parent', type_options: { disabled: true } }
+                    - { property: 'createdAt', css_class: 'col-sm-6', label: 'createdAt', type_options: { disabled: true } }
+                    - { property: 'acceptedAt', css_class: 'col-sm-6', label: 'acceptedAt'}
+                    - observations
+
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Prices Information', icon: 'money' }
+                    - { property: 'fixedPrice', type: 'money', type_options: { currency: 'EUR',  disabled: true }, css_class: 'col-sm-4', label: 'fixedPrice'}
+                    - { property: 'profitFixed', type: 'number', css_class: 'col-sm-4', label: 'profitFixed'}
+                    - { property: 'monthPrice', type: 'money', type_options: { currency: 'EUR',  disabled: true }, css_class: 'col-sm-4', label: 'monthPrice'}
+                    - { property: 'variablePrice', type: 'money', type_options: { currency: 'EUR',  disabled: true }, css_class: 'col-sm-4', label: 'variablePrice'}
+                    - { property: 'profitVariable', type: 'number', css_class: 'col-sm-4', label: 'profitVariable'}
+                    - { property: 'profitDuration', type: 'percent', type_options: { disabled: true }, css_class: 'col-sm-4', label: 'profitDuration'}
+                    - { property: 'pageColorPrice', type: 'money', type_options: { currency: 'EUR',  disabled: true }, css_class: 'col-sm-5', label: 'pageColorPrice'}
+                    - { property: 'pageBlackPrice', type: 'money', type_options: { currency: 'EUR',  disabled: true }, css_class: 'col-sm-5', label: 'pageBlackPrice'}
+                    - { property: 'priceTonerColor', type: 'money', type_options: { currency: 'EUR',  disabled: true }, css_class: 'col-sm-5', label: 'priceTonerColor'}
+                    - { property: 'priceTonerBlack', type: 'money', type_options: { currency: 'EUR',  disabled: true }, css_class: 'col-sm-5', label: 'priceTonerBlack'}
+
+
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Consumables Information', icon: 'shopping-cart ' }
+                    - { property: 'amountColor', css_class: 'col-sm-6', label: 'tonerYearAmountColor'}
+                    - { property: 'amountBlack', css_class: 'col-sm-6', label: 'tonerYearAmountBlack'}
+                    - { property: 'sentConsumables', type_options: { disabled: true }, label: 'sentConsumables'}
+
+#                    - { property: 'description', css_class: 'col-sm-6', label: 'description' }
+#                    - { property: 'maker', css_class: 'col-sm-6', label: 'maker', type_options: { required: true } }
+#                    - { property: 'technology', css_class: 'col-sm-6', label: 'technology', type_options: { required: true } }
+#                    - { property: 'recomendedVolume', css_class: 'col-sm-6', label: 'recomendedVolume' , type_options: { required: true }}
+#                    - { type: 'section', label: 'configurer settings', icon: 'warning', help: 'configurer data help' }
+#                    - { property: 'functionality', css_class: 'col-sm-6', label: 'functionality', type_options: { required: true } }
+#                    - { property: 'chromaType', css_class: 'col-sm-6', label: 'chromaType', type_options: { required: true } }
+#                    - { property: 'format', css_class: 'col-sm-6', label: 'format', type_options: { required: true } }
+#                    - { property: 'pageRange', css_class: 'col-sm-6', label: 'pageRange', type_options: { required: true } }
+#                    - { property: 'recomended', label: 'recomended' , css_class: 'col-sm-6'}
+#                    - { property: 'stock', css_class: 'col-sm-6', label: 'stock', type_options: { required: true } }
+#                    - { type: 'section', label: 'aditional info', icon: 'warning', help: 'aditional info help' }
+#                    - { property: 'wifi', css_class: 'col-sm-3', label: 'wifi' }
+#                    - { property: 'airPrint', css_class: 'col-sm-3', label: 'airPrint' }
+#                    - { property: 'cloud', css_class: 'col-sm-3', label: 'cloud' }
+#                    - { property: 'nfc', css_class: 'col-sm-3', label: 'nfc' }
+#                    - { type: 'divider'}
+#                    - { property: 'aditionalInfo', type: 'ckeditor', label: 'aditionalInformation' }
+#
+#                    - { type: 'group', css_class: 'col-sm-6', label: 'Product Details', icon: 'cube' }
+#                    - { property: 'cod', label: 'cod', type_options: { required: true } }
+#                    - { type: 'section', label: 'fixed price calculate', icon: 'warning', help: 'fixed price calculate help' }
+#                    - { property: 'price', label: 'price', type: 'money', type_options: { currency: 'EUR' }, css_class: 'col-sm-3' }
+#                    - { property: 'monitorizationPrice', type: 'money', type_options: { currency: 'EUR' }, css_class: 'col-sm-3', label: 'monitorization Price'}
+#                    - { property: 'instalationPrice', type: 'money', type_options: { currency: 'EUR' }, css_class: 'col-sm-3', label: 'installation Price'}
+#                    - { property: 'profit', label: 'profit', css_class: 'col-sm-3'}
+#                    - { property: 'carePack', css_class: 'col-sm-12', label: 'carePack', type_options: { required: true } }
+#                    - { type: 'section', label: 'variable price calculate', icon: 'warning', help: 'variable price calculate help' }
+#                    - { property: 'pageProfit', css_class: 'col-sm-3' }
+#
+#                    - { type: 'divider' }
+#                    - { property: 'toners', css_class: 'col-sm-12', type_options: { required: true }}
+#                    - { property: 'drums', css_class: 'col-sm-6'}
+#                    - { property: 'parts', css_class: 'col-sm-6'}
+#
+#                    - { type: 'group', css_class: 'col-sm-6', label: 'Attachments', icon: 'paperclip' }
+#                    - { property: 'imageFrontFile', label: 'imageFrontFile', type: 'vich_image' }
+#                    - { property: 'imageLateralFile', label: 'imageLateralFile', type: 'vich_image' }
+#                    - { property: 'imagePerspectiveFile', label: 'imagePerspectiveFile', type: 'vich_image' }

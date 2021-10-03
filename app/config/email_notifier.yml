@@ -1,0 +1,5 @@
+parameters:
+    notificator_mail: 'notificaciones@docutea.es'
+    template_notification_mail: 'email/infoEmail.html.twig'
+    admin_notification_mail: 'miguel.cueva@gdoadapta.es'
+    template_store_order_notification_mail: 'email/storeOrderEmail.html.twig'

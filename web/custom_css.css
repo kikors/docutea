@@ -1,0 +1,13 @@
+
+
+.wpb_wrapper{text-align: center;}
+.light.header_style_on_scroll nav.main_menu > ul > li.active > a, .light.header_style_on_scroll nav.main_menu > ul > li::before, .light.header_style_on_scroll nav.main_menu > ul > li > a:hover, .light:not(.sticky):not(.scrolled) nav.main_menu > ul > li.active > a, .light:not(.sticky):not(.scrolled) nav.main_menu > ul > li::before, .light:not(.sticky):not(.scrolled) nav.main_menu > ul > li > a, .light:not(.sticky):not(.scrolled) nav.main_menu > ul > li > a:hover {
+    color: #666 !important;
+}
+
+.areaprivada{padding:2px 15px; background:rgb(211, 125, 136)}
+
+.header_top {
+background: #D1D1D1 !important;
+height: 38px
+}

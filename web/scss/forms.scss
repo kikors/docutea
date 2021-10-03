@@ -1,0 +1,53 @@
+.select {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 15px;
+	width: 100%;
+	select {
+		display: inline-block;
+		width: 100%;
+		cursor: pointer;
+		padding: 10px 15px;
+		outline: 0;
+		border-radius: 0;
+		background: transparent;
+		color: $main;
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		border:1px solid $main;
+		text-transform: uppercase;
+		background-image: url(../images/arrow.png);
+		background-repeat: no-repeat;
+		background-position: 96%;
+	}
+}
+
+.button {
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 6px 12px;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 1.42857;
+	border-radius: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	text-transform: uppercase;
+	background:$main;
+	color:$white;
+	&:hover:not([disabled]) {
+		background: $secondary;
+	}
+}

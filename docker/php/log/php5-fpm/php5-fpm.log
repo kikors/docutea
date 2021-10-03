@@ -1,0 +1,13 @@
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP Fatal error:  Declaration of AppBundle\Application\Service\GetShoppingCartProductsQtty::execute($dto = NULL) must be compatible with AppBundle\Application\Service\ApplicationServiceInterface::execute($dto = NULL): void in /var/www/html/src/AppBundle/Application/Service/GetShoppingCartProductsQtty.php on line 9
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP Stack trace:
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP   1. {main}() /var/www/html/web/app_dev.php:0
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP   2. AppKernel->handle() /var/www/html/web/app_dev.php:29
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle() /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:169
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw() /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:68
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP   5. AppBundle\Controller\StoreController->producDeleteCartAction() /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:151
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP   6. AppBundle\Controller\StoreController->get() /var/www/html/src/AppBundle/Controller/StoreController.php:94
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP   7. appDevDebugProjectContainer->get() /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php:50
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP   8. appDevDebugProjectContainer->getDocutea_Application_GetShoppingCartProductQttyService() /var/www/html/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Container.php:329
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP   9. spl_autoload_call() /var/www/html/var/cache/dev/appDevDebugProjectContainer.php:1762
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP  10. Symfony\Component\Debug\DebugClassLoader->loadClass() /var/www/html/var/cache/dev/appDevDebugProjectContainer.php:1762
+[10-Oct-2019 22:00:24 Europe/Madrid] PHP  11. require() /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Debug/DebugClassLoader.php:141

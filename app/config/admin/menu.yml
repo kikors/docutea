@@ -1,0 +1,39 @@
+# This file sets the configuration of the main menu. If your backend is simple,
+# you probably can leave the 'menu' option empty and rely on the default menu
+# created by EasyAdmin.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+    design:
+        menu:
+            - label: 'menu.category'
+              icon: 'shopping-basket'
+              children:
+                  - { entity: 'FormatType', icon: 'th-list', label: 'menu.format.list' }
+                  - { entity: 'FunctionalityType', icon: 'th-list', label: 'menu.functionality.list' }
+                  - { entity: 'Technology', icon: 'th-list', label: 'menu.technology.list' }
+                  - { entity: 'ChromaType', icon: 'th-list', label: 'menu.chromatype.list' }
+                  - { entity: 'TonerCapacity', icon: 'th-list', label: 'menu.toner.capacity' }
+                  - { entity: 'TonerColor', icon: 'th-list', label: 'menu.toner.color' }
+                  - { entity: 'TonerType', icon: 'th-list', label: 'menu.toner.type' }
+                  - { entity: 'Maker', icon: 'th-list', label: 'menu.maker' }
+                  - { entity: 'PartType', icon: 'th-list', label: 'menu.part.type' }
+                  - { entity: 'CarePackProfit', icon: 'th-list', label: 'menu.carepack.profit' }
+                  - { entity: 'PageRange', icon: 'th-list', label: 'menu.page.range' }
+            - { label: 'menu.user.list', entity: 'User', icon: 'users' }
+            - { label: 'menu.product.list', entity: 'Machine', icon: 'print' }
+            - { label: 'menu.toner.list', entity: 'Toner', icon: 'tags' }
+            - { label: 'menu.drum.list', entity: 'Drum', icon: 'tags' }
+            - { label: 'menu.parts.list', entity: 'Part', icon: 'tags' }
+            - { label: 'menu.carepack.list', entity: 'CarePack', icon: 'tags' }
+            - { label: 'menu.sales_order.list', entity: 'SalesOrder', icon: 'tags' }
+            - { label: 'menu.sent_consumables.list', entity: 'SentConsumables', icon: 'tags' }
+            - { label: 'menu.invoice.list', entity: 'Invoice', icon: 'tags' }
+            - { label: 'menu.sales.list', entity: 'Product', icon: 'dollar' }
+            - { label: 'Facturar Mes' , entity: 'SalesOrder', icon: 'th-list', params: { action: 'consolidation' } }
+            - { label: 'Operaciones Tienda' , entity: 'StoreOrder', icon: 'dollar' }
