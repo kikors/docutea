@@ -20,3 +20,4 @@ easy_admin:
         - AppBundle\Entity\Costumer
         - AppBundle\Entity\PageRange
         - AppBundle\Entity\ChromaType
+        - AppBundle\Entity\ContractTime
