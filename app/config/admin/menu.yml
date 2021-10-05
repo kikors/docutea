@@ -25,6 +25,7 @@ easy_admin:
                   - { entity: 'PartType', icon: 'th-list', label: 'menu.part.type' }
                   - { entity: 'CarePackProfit', icon: 'th-list', label: 'menu.carepack.profit' }
                   - { entity: 'PageRange', icon: 'th-list', label: 'menu.page.range' }
+                  - { entity: 'ContractTime', icon: 'th-list', label: 'menu.contract.time' }
             - { label: 'menu.user.list', entity: 'User', icon: 'users' }
             - { label: 'menu.product.list', entity: 'Machine', icon: 'print' }
             - { label: 'menu.toner.list', entity: 'Toner', icon: 'tags' }

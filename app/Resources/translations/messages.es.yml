@@ -26,6 +26,7 @@ menu.carepack.profit:     Profit por Periodo
 menu.page.range:          Rangos de Página
 menu.chromatype.list:     Tipo de Impresora
 menu.sent_consumables.list: Consumibles enviados
+menu.contract.time: Tiempo de Contrato
 menu.invoice.list: Facturas
 
 # entity names, labels and titles

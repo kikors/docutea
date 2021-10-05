@@ -1,0 +1,62 @@
+# Incluir en /etc/hosts
+# 127.0.0.1  docutea.local
+# sudo setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx var/cache var/logs
+# sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx var/cache var/logs
+# chmod 600 ./docker/ssh/id_rsa
+
+version: '3'
+
+services:
+  docutea-mysql:
+    image: mysql:5.7
+    container_name: docutea-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=docutea
+      - MYSQL_DATABASE=docuteadb
+      - MYSQL_USER=docutea
+      - MYSQL_PASSWORD=docutea
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./docker/data/db/docuteamysql:/var/lib/mysql"
+    networks:
+      - isolated-docutea
+
+  docutea-apache:
+    container_name: docutea-apache
+    image: sgadpsf/apache-2.4.10:latest
+    ports:
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:443:443"
+    links:
+      - docutea-php:php
+    volumes:
+      - .:/var/www/html/:rw
+      - ./docker/apache/log:/var/log/apache2:rw
+      - ./docker/apache/vhost:/etc/apache2/sites-available:rw
+      - ./docker/ssh/:/var/www/.ssh
+      - ./docker/php/conf/30-custom.ini:/usr/local/etc/php/conf.d/30-custom.ini
+      - ./docker/php/log/php5-fpm:/var/log/php5-fpm:rw
+    networks:
+      - isolated-docutea
+    environment:
+      - VIRTUALHOST=docutea.local
+      - VIRTUALIAS=docutea.local
+
+  docutea-php:
+    container_name: docutea-php
+    image: sgadpsf/php-fpm-7.2:latest
+    volumes:
+      - .:/var/www/html/:rw
+      - ./docker/php/log/php5-fpm:/var/log/php5-fpm:rw
+      - ./docker/composer:/var/www/.composer:rw
+      - ./docker/ssh/:/var/www/.ssh
+      - ./docker/php/conf/30-custom.ini:/usr/local/etc/php/conf.d/30-custom.ini
+    networks:
+      - isolated-docutea
+#    environment:
+#      - http_proxy=http://proxy.mpt.es:8080
+#      - https_proxy=http://proxy.mpt.es:8080
+
+networks:
+  isolated-docutea:

@@ -26,7 +26,7 @@ class ContractTime
 
     /**
      * @var bool
-     * @ORM\Column(name="default", type="boolean", nullable=false)
+     * @ORM\Column(name="default_value", type="boolean", nullable=false)
      */
     protected $default;
 
