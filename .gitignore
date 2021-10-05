@@ -50,3 +50,11 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+
+# IDE
+/.idea
+
+# Docker
+/docker/apache/log
+/docker/php/log
+/docker/composer/cache
