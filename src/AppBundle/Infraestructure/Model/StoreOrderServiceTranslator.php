@@ -22,7 +22,7 @@ class StoreOrderServiceTranslator implements StoreOrderServiceInterface
         $storeOrder->configureTransactionData(
             $storesOrderForPersistence->getIdTpv(),
             $storesOrderForPersistence->getAmount(),
-            $storesOrderForPersistence->getDate(),
+            $storesOrderForPersistence->getCreatedAt(),
             $storesOrderForPersistence->getDescription()
         );
         $storeOrder->configureUserData(
@@ -43,7 +43,7 @@ class StoreOrderServiceTranslator implements StoreOrderServiceInterface
         );
         $aceptarComunicacion = $storesOrderForPersistence->getAceptarComunicacion() ?: false;
         $storeOrder->setAceptarComunicacion($aceptarComunicacion);
-
+        $storeOrder->setSellAt($storesOrderForPersistence->getSellAt());
         $storeOrder->setState($storesOrderForPersistence->getState());
 
         return $storeOrder;
@@ -60,7 +60,7 @@ class StoreOrderServiceTranslator implements StoreOrderServiceInterface
         $storesOrderForPersistence->setId($storeOrder->getId());
         $storesOrderForPersistence->setIdTpv($storeOrder->getIdTpv());
         $storesOrderForPersistence->setAmount($storeOrder->getAmount());
-        $storesOrderForPersistence->setDate($storeOrder->getDate());
+        $storesOrderForPersistence->setCreatedAt($storeOrder->getCreatedAt());
         $storesOrderForPersistence->setDescription($storeOrder->getDescrition());
         $storesOrderForPersistence->setName($storeOrder->getName());
         $storesOrderForPersistence->setCif($storeOrder->getCif());
@@ -76,6 +76,7 @@ class StoreOrderServiceTranslator implements StoreOrderServiceInterface
         $storesOrderForPersistence->setDeliveryProvince($storeOrder->getDeliveryProvince());
         $storesOrderForPersistence->setDeliveryCp($storeOrder->getDeliveryCp());
         $storesOrderForPersistence->setDeliveryTown($storeOrder->getDeliveryTown());
+        $storesOrderForPersistence->setSellAt($storeOrder->getSellAt());
 
         return $storesOrderForPersistence;
     }

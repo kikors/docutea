@@ -10,5 +10,5 @@ interface StoreOrderServiceInterface
 {
     public function translate(StoreOrderForPersistence $storesOrderForPersistence): StoreOrder;
 
-    public function unTranslate(StoreOrder $storesOrderForPersistence): StoreOrderForPersistence;
+    public function unTranslate(StoreOrder $storeOrder): StoreOrderForPersistence;
 }

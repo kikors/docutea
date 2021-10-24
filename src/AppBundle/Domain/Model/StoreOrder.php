@@ -73,11 +73,16 @@ class StoreOrder
     private $idTpv;
 
     /**
-     * @var null|DateTime
+     * @var DateTime
      */
-    private $date;
+    private $createdAt;
 
     /**
+     * @var DateTime|null
+     */
+    private $sellAt;
+
+    /**6
      * @var string
      */
     private $state;
@@ -135,6 +140,7 @@ class StoreOrder
         $this->id = $id;
         $this->transactId = date('Y').substr($id, 0, self::ID_TRANSACT_MAX_LENGTH);
         $this->aceptarComunicacion = false;
+        $this->createdAt = new DateTime();
     }
 
     /**
@@ -186,7 +192,7 @@ class StoreOrder
         $this->idTpv = $idTpv;
         $this->amount = $amount;
         $this->descrition = $description;
-        $this->date = $date;
+        $this->createdAt = $date;
     }
 
     /**
@@ -296,9 +302,9 @@ class StoreOrder
     /**
      * @return DateTime|null
      */
-    public function getDate(): ?DateTime
+    public function getCreatedAt(): ?DateTime
     {
-        return $this->date;
+        return $this->createdAt;
     }
 
     /**
@@ -342,11 +348,11 @@ class StoreOrder
     }
 
     /**
-     * @param DateTime|null $date
+     * @param DateTime|null $createdAt
      */
-    public function setDate(?DateTime $date): void
+    public function setCreatedAt(?DateTime $createdAt): void
     {
-        $this->date = $date;
+        $this->createdAt = $createdAt;
     }
 
     /**
@@ -411,5 +417,21 @@ class StoreOrder
     public function setAceptarComunicacion(bool $aceptarComunicacion): void
     {
         $this->aceptarComunicacion = $aceptarComunicacion;
+    }
+
+    /**
+     * @return DateTime|null
+     */
+    public function getSellAt(): ?DateTime
+    {
+        return $this->sellAt;
+    }
+
+    /**
+     * @param DateTime|null $sellAt
+     */
+    public function setSellAt(?DateTime $sellAt): void
+    {
+        $this->sellAt = $sellAt;
     }
 }

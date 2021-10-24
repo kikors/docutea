@@ -112,10 +112,16 @@ class StoreOrderForPersistence implements PermittedActionsInterface
     private $idTpv;
 
     /**
-     * @var null|DateTime
-     * @ORM\Column(name="date", type="datetime", nullable=true)
+     * @var DateTime
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
-    private $date;
+    private $createdAt;
+
+    /**
+     * @var null|DateTime
+     * @ORM\Column(name="sell_at", type="datetime", nullable=true)
+     */
+    private $sellAt;
 
     /**
      * @var string
@@ -304,17 +310,17 @@ class StoreOrderForPersistence implements PermittedActionsInterface
     /**
      * @return DateTime|null
      */
-    public function getDate(): ?DateTime
+    public function getCreatedAt(): ?DateTime
     {
-        return $this->date;
+        return $this->createdAt;
     }
 
     /**
-     * @param DateTime|null $date
+     * @param DateTime|null $createdAt
      */
-    public function setDate(?DateTime $date): void
+    public function setCreatedAt(?DateTime $createdAt): void
     {
-        $this->date = $date;
+        $this->createdAt = $createdAt;
     }
 
     /**
@@ -463,7 +469,7 @@ class StoreOrderForPersistence implements PermittedActionsInterface
     }
 
     /**
-     * @param string $contactName
+     * @param string|null $contactName
      */
     public function setContactName(?string $contactName): void
     {
@@ -486,5 +492,19 @@ class StoreOrderForPersistence implements PermittedActionsInterface
         $this->aceptarComunicacion = $aceptarComunicacion;
     }
 
+    /**
+     * @return DateTime|null
+     */
+    public function getSellAt(): ?DateTime
+    {
+        return $this->sellAt;
+    }
 
+    /**
+     * @param DateTime|null $sellAt
+     */
+    public function setSellAt(?DateTime $sellAt): void
+    {
+        $this->sellAt = $sellAt;
+    }
 }

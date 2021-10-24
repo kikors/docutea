@@ -66,7 +66,7 @@ class SuccessStoreOrder implements ApplicationServiceTransformInterface
         }
         $storeOrder->setIdTpv($response['Ds_AuthorisationCode']);
         $storeOrder->setAmount($this->converFloat($response['Ds_Amount']));
-        $storeOrder->setDate($this->convertTimeString($response['Ds_Date'], $response['Ds_Hour']));
+        $storeOrder->setCreatedAt($this->convertTimeString($response['Ds_Date'], $response['Ds_Hour']));
         $storeOrder->success();
 
         $this->storeOrderRepository->save($storeOrder);

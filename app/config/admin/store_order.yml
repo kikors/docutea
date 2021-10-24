@@ -30,6 +30,7 @@ easy_admin:
                     - { property: 'cp', label: 'CP', css_class: text-right }
                     - { property: 'phone',label: 'Teléfono', css_class: text-right }
                     - { property: 'email', label: 'Email' }
-                    - { property: 'date', type: 'date', label: 'Fecha' }
+                    - { property: 'createdAt', type: 'date', label: 'Fecha de Creación' }
+                    - { property: 'sellAt', type: 'date', label: 'Fecha de Venta' }
                     - { property: 'amount', format: '%.2f €', label: 'Cantidad', css_class: text-right }
                     - aceptarComunicacion

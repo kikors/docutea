@@ -211,3 +211,5 @@
 [Sun Oct 24 19:23:44.099105 2021] [core:notice] [pid 39:tid 140267584132992] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
 [Sun Oct 24 19:24:28.412761 2021] [proxy_fcgi:error] [pid 42:tid 140267373975296] [client 172.18.0.1:62174] AH01068: Got bogus version 49, referer: http://docutea.local/
 [Sun Oct 24 19:24:28.413400 2021] [proxy_fcgi:error] [pid 42:tid 140267373975296] (22)Invalid argument: [client 172.18.0.1:62174] AH01075: Error dispatching request to : (passing brigade to output filters), referer: http://docutea.local/
+[Sun Oct 24 19:39:03.431876 2021] [proxy_fcgi:error] [pid 42:tid 140267478480640] [client 172.18.0.1:65132] AH01068: Got bogus version 32
+[Sun Oct 24 19:39:03.432190 2021] [proxy_fcgi:error] [pid 42:tid 140267478480640] (22)Invalid argument: [client 172.18.0.1:65132] AH01075: Error dispatching request to : (passing brigade to output filters)
