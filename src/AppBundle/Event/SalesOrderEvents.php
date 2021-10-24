@@ -34,6 +34,4 @@ final class SalesOrderEvents
      * no se realiza.
      */
     const RECONCILIATE = 'app_bundle.sales_order.reconciliated';
-
-
 }

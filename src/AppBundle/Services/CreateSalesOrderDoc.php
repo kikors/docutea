@@ -12,5 +12,5 @@ namespace AppBundle\Services;
 use AppBundle\Entity\SalesOrder;
 
 interface CreateSalesOrderDoc {
-    public function create(SalesOrder $SalesOrder);
+    public function create(SalesOrder $salesOrder);
 }

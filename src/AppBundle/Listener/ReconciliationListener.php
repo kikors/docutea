@@ -11,6 +11,7 @@ namespace AppBundle\Listener;
 use AppBundle\Entity\Manager\InvoiceManager;
 use AppBundle\Event\ConciliatedEvent;
 use AppBundle\StaticsClass\SalesOrderStates;
+use Doctrine\DBAL\ConnectionException;
 use Doctrine\ORM\EntityManager;
 use Exception;
 use Monolog\Logger;
@@ -34,7 +35,7 @@ class ReconciliationListener
     private $em;
 
     /**
-     * @var \AppBundle\Entity\Manager\InvoiceManager
+     * @var InvoiceManager
      */
     private $invoiceManager;
 
@@ -42,8 +43,8 @@ class ReconciliationListener
      * ReconciliationListener constructor.
      *
      * @param Logger $logger
-     * @param \Doctrine\ORM\EntityManager $em
-     * @param \AppBundle\Entity\Manager\InvoiceManager $invoiceManager
+     * @param EntityManager $em
+     * @param InvoiceManager $invoiceManager
      */
     public function __construct(Logger $logger, EntityManager $em, InvoiceManager $invoiceManager)
     {
@@ -56,7 +57,7 @@ class ReconciliationListener
      * Este método será el encargado de crear una oferta.
      *
      * @param ConciliatedEvent $event
-     * @throws \Doctrine\DBAL\ConnectionException
+     * @throws ConnectionException
      * @throws Exception
      */
     public function onReconciliated(ConciliatedEvent $event)

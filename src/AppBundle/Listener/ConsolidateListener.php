@@ -35,7 +35,7 @@ class ConsolidateListener
     private $em;
 
     /**
-     * @var \AppBundle\Entity\Manager\InvoiceManager
+     * @var InvoiceManager
      */
     private $invoiceManager;
 
@@ -43,8 +43,8 @@ class ConsolidateListener
      * ReconciliationListener constructor.
      *
      * @param Logger $logger
-     * @param \Doctrine\ORM\EntityManager $em
-     * @param \AppBundle\Entity\Manager\InvoiceManager $invoiceManager
+     * @param EntityManager $em
+     * @param InvoiceManager $invoiceManager
      */
     public function __construct(Logger $logger, EntityManager $em, InvoiceManager $invoiceManager)
     {
@@ -56,7 +56,7 @@ class ConsolidateListener
     /**
      * Este método será el encargado de crear una oferta.
      *
-     * @throws \Doctrine\DBAL\ConnectionException
+     * @throws ConnectionException
      * @throws Exception
      */
     public function onCheckIn()
@@ -91,7 +91,7 @@ class ConsolidateListener
             $this->em->flush();
 
             $this->em->getConnection()->commit();
-            $this->logger->log('info', 'Terminada factiración de contrato ' . $salesOrder->getContractNumber());
+            $this->logger->log('info', 'Terminada facturación de contrato ' . $salesOrder->getContractNumber());
         } catch (Exception $e) {
             $this->em->getConnection()->rollBack();
             $this->logger->log('info', 'No se pudo facturar el contrato ' . $salesOrder->getContractNumber());

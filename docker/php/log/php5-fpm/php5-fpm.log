@@ -11,3 +11,82 @@
 [10-Oct-2019 22:00:24 Europe/Madrid] PHP   9. spl_autoload_call() /var/www/html/var/cache/dev/appDevDebugProjectContainer.php:1762
 [10-Oct-2019 22:00:24 Europe/Madrid] PHP  10. Symfony\Component\Debug\DebugClassLoader->loadClass() /var/www/html/var/cache/dev/appDevDebugProjectContainer.php:1762
 [10-Oct-2019 22:00:24 Europe/Madrid] PHP  11. require() /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Debug/DebugClassLoader.php:141
+[05-Oct-2021 23:36:41 Europe/Madrid] PHP Warning:  POST Content-Length of 8627059 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+[06-Oct-2021 00:26:29 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:24:30 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:38:00 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:38:10 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:39:03 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:40:19 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:43:27 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:43:28 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:43:32 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:43:47 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:44:02 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:44:06 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127
+[24-Oct-2021 21:44:17 Europe/Madrid] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function getBaseUrl() on null in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php:127
+Stack trace:
+#0 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php(78): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->generateLogoutUrl(NULL, 1)
+#1 /var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/DataCollector/SecurityDataCollector.php(96): Symfony\Component\Security\Http\Logout\LogoutUrlGenerator->getLogoutPath()
+#2 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Profiler/Profiler.php(164): Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector->collect(Object(Symfony\Component\HttpFoundation\Request), Object(Symfony\Component\HttpFoundation\Response), NULL)
+#3 /var/www/html/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ProfilerListener.php(91): Sym in /var/www/html/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Logout/LogoutUrlGenerator.php on line 127

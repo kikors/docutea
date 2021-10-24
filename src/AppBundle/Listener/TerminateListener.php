@@ -65,7 +65,7 @@ class TerminateListener
         try {
             $contract = $event->getSalesOrder();
             $this->logger->log('info', 'Terminnado contrato ' . $event->getContractNumber());
-            $reconciliation = $this->invoiceManager->createInvoice($contract, true);
+            $reconciliation = $this->invoiceManager->createInvoice($contract);
             if (!$reconciliation) {
                 throw new Exception('No se pudo reconciliar el contrato');
             }

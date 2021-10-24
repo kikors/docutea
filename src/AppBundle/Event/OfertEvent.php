@@ -17,7 +17,7 @@ use Symfony\Component\EventDispatcher\Event;
  * Class OfertEvent
  * @package AppBundle\Event
  */
-class OfertEvent extends Event
+final class OfertEvent extends Event
 {
     /**
      * @var Machine
@@ -50,7 +50,7 @@ class OfertEvent extends Event
     private $address;
 
     /**
-     * @var \AppBundle\Entity\SalesOrder|null
+     * @var SalesOrder|null
      */
     private $parent;
 

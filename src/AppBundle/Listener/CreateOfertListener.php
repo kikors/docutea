@@ -21,7 +21,6 @@ use AppBundle\Infraestructure\Services\Notification\LoggerNotification\LoggerNot
 use AppBundle\Services\CreateSalesOrderDoc;
 use Doctrine\ORM\EntityManager;
 use Exception;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Throwable;
 
 /**
@@ -33,11 +32,7 @@ class CreateOfertListener {
 
     private $loggerNotifier;
 
-    private $salesOrdeRepository;
-
     private $manager;
-
-    private $dispatcher;
 
     private $userRepository;
 
@@ -54,8 +49,6 @@ class CreateOfertListener {
      *
      * @param EntityManager $em
      * @param SalesOrderManager $manager
-     * @param EventDispatcher $dispatcher
-     *
      * @param $adminNotificationMail
      *
      * @param CreateSalesOrderDoc $createSalesOrderDoc
@@ -70,18 +63,15 @@ class CreateOfertListener {
      */
     public function __construct(EntityManager $em,
                                 SalesOrderManager $manager,
-                                EventDispatcherInterface $dispatcher,
                                 $adminNotificationMail,
                                 CreateSalesOrderDoc $createSalesOrderDoc,
                                 EmailNotifier $notifier,
                                 LoggerNotifier $loggerNotifier,
                                 $pdfFilePath
     ) {
-        $this->salesOrdeRepository = $em->getRepository('AppBundle:SalesOrder');
         $this->userRepository = $em->getRepository('AppBundle:User');
         $this->manager = $manager;
         $this->loggerNotifier = $loggerNotifier;
-        $this->dispatcher = $dispatcher;
         $this->adminNotificationMail = $adminNotificationMail;
         $this->createSalesOrderDoc = $createSalesOrderDoc;
         $this->emailNotifier = $notifier;

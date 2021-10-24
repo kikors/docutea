@@ -33,8 +33,7 @@ class SendMailListener {
                 $event->getFrom(), $event->getTo(), $event->getSubject(),
                 $event->getTemplate(), $event->getContext()
             );
-        } catch (Exception $e) {
-        } catch (Throwable $e) {
+        } catch (Exception | Throwable $e) {
         }
     }
 

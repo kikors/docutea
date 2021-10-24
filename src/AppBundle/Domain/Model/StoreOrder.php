@@ -124,7 +124,7 @@ class StoreOrder
 
     /**
      * StoreOrder constructor.
-     * @param string $id
+     * @param string|null $id
      * @throws Exception
      */
     public function __construct(string $id = null)
@@ -174,18 +174,18 @@ class StoreOrder
     }
 
     /**
-    * @param string $idTpv
+     * @param string|null $idTpv
      * @param float $amount
-     * @param DateTime $date
-     * @param string $descrition
+     * @param DateTime|null $date
+     * @param string $description
      */
     public function configureTransactionData(
-        ?string $idTpv, float $amount, ?DateTime $date, string $descrition
+        ?string $idTpv, float $amount, ?DateTime $date, string $description
     ): void
     {
         $this->idTpv = $idTpv;
         $this->amount = $amount;
-        $this->descrition = $descrition;
+        $this->descrition = $description;
         $this->date = $date;
     }
 

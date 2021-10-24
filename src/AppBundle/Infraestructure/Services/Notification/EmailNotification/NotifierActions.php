@@ -13,7 +13,7 @@ final class NotifierActions {
 
     const NEW_SALES_ORDER_CREATE_USER_SUBJECT = 'Bienvenido a Docutea';
 
-    const NOTIFY_CREATE_SALESORDER_ADMIN = 'Se ha creado un nuevo contrato';
+    const NOTIFY_CREATE_SALES_ORDER_ADMIN = 'Se ha creado un nuevo contrato';
     
     const NOTIFY_USER_NEW_SALES_ORDER_CREATED = 'Crear de usuario nuevo';
 

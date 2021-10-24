@@ -12,6 +12,7 @@ namespace AppBundle\Infraestructure\Services\CreateSalesOrderDoc;
 use AppBundle\Entity\SalesOrder;
 use AppBundle\Services\CreateSalesOrderDoc;
 use Symfony\Bridge\Twig\TwigEngine;
+use Twig\Error\Error;
 use WhiteOctober\TCPDFBundle\Controller\TCPDFController;
 
 /**
@@ -69,9 +70,9 @@ class PDFCreateSalesOrderDoc implements CreateSalesOrderDoc {
 
 
     /**
-     * @param \AppBundle\Entity\SalesOrder $salesOrder
+     * @param SalesOrder $salesOrder
      *
-     * @throws \Twig\Error\Error
+     * @throws Error
      */
     public function create(SalesOrder $salesOrder) {
         $filename = $this->fielPath.$salesOrder->getContractNumber().'_info.pdf';

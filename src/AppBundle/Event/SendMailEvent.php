@@ -15,13 +15,12 @@ use Symfony\Component\EventDispatcher\Event;
  *
  * @package AppBundle\Event
  */
-class SendMailEvent extends Event {
+final class SendMailEvent extends Event {
     private $from;
     private $to;
     private $subject;
     private $context;
     private $template;
-
 
     /**
      * NewSalesOrderEvent constructor.

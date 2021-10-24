@@ -19,7 +19,7 @@ use Symfony\Component\EventDispatcher\Event;
  *
  * @package AppBundle\Event
  */
-class NewSalesOrderEvent extends Event {
+final class NewSalesOrderEvent extends Event {
 
     /**
      * @var User

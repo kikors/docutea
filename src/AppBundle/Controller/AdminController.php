@@ -17,6 +17,7 @@ use Doctrine\ORM\ORMException;
 use Exception;
 use FOS\UserBundle\Model\UserInterface;
 use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -54,8 +55,6 @@ class AdminController extends BaseAdminController
 
     /**
      * @return RedirectResponse
-     * @throws ORMException
-     * @throws OptimisticLockException
      * @throws Exception
      */
     public function conciliationAction()
@@ -123,7 +122,7 @@ class AdminController extends BaseAdminController
             ->getRepository('AppBundle:SalesOrder')
             ->find($request->query->get('id'));
 
-        $this->get('event_dispatcher')->dispatch(
+        (new EventDispatcher())->dispatch(
             'app_bundle.sales_order.terminate',
             new ConciliatedEvent($salesOrder)
         );
@@ -163,7 +162,7 @@ class AdminController extends BaseAdminController
     public function persistEntity($entity)
     {
         $this->updateSalesOrder($entity);
-        parent::persistEntity($entity);
+//        parent::persistEntity($entity);
     }
 
     /**
@@ -178,6 +177,7 @@ class AdminController extends BaseAdminController
             if ($salesOrder->getState() !== SalesOrderStates::ACCEPTED) {
                 $salesOrder->setState(SalesOrderStates::ACCEPTED);
                 $em->persist($salesOrder);
+                $em->flush();
             }
         }
     }

@@ -8,7 +8,6 @@
 
 namespace AppBundle\Event;
 
-
 use AppBundle\Entity\SalesOrder;
 use Symfony\Component\EventDispatcher\Event;
 
@@ -16,7 +15,7 @@ use Symfony\Component\EventDispatcher\Event;
  * Class ReconciliationEvent
  * @package AppBundle\Event
  */
-class ConciliatedEvent extends Event
+final class ConciliatedEvent extends Event
 {
     /**
      * @var SalesOrder
@@ -33,18 +32,12 @@ class ConciliatedEvent extends Event
         $this->salesOrder = $salesOrder;
     }
 
-    /**
-     * @return SalesOrder
-     */
-    public function getSalesOrder()
+    public function getSalesOrder(): SalesOrder
     {
         return $this->salesOrder;
     }
 
-    /**
-     * @return String
-     */
-    public function getContractNumber()
+    public function getContractNumber(): string
     {
         return $this->salesOrder->getContractNumber();
     }

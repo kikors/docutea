@@ -19,7 +19,7 @@ class StoreController extends Controller
      * @return Response
      * @throws Exception
      */
-    public function homeStoreAction()
+    public function homeStoreAction(): Response
     {
         $appService = $this->get('docutea.application.listar_productos');
         $appService->execute();
@@ -35,7 +35,7 @@ class StoreController extends Controller
      * @return Response
      * @throws Exception
      */
-    public function producDetailAction(int $id)
+    public function producDetailAction(int $id): Response
     {
         $appService = $this->get('docutea.application.detalles_producto');
         $appService->execute($id);
@@ -51,7 +51,7 @@ class StoreController extends Controller
      * @return Response
      * @throws CantBuildCartProductException
      */
-    public function producAddCartAction(int $id, int $qtty)
+    public function producAddCartAction(int $id, int $qtty): Response
     {
         $appService = $this->get('docutea.application.add_product_to_cart');
         $appService->execute(new CartProductBaseDTO($id, $qtty));
@@ -70,7 +70,7 @@ class StoreController extends Controller
      * @return Response
      * @throws CantBuildCartProductException
      */
-    public function producUpdateCartAction(int $id, int $qtty)
+    public function producUpdateCartAction(int $id, int $qtty): Response
     {
         $appService = $this->get('docutea.application.update_product_to_cart');
         $appService->execute(new CartProductBaseDTO($id, $qtty));
@@ -88,7 +88,7 @@ class StoreController extends Controller
      * @return Response
      * @throws Exception
      */
-    public function producDeleteCartAction(int $id)
+    public function producDeleteCartAction(int $id): Response
     {
         $appService = $this->get('docutea.application.delete_product_to_cart');
         $appService->execute($id);
@@ -105,7 +105,7 @@ class StoreController extends Controller
      * @return Response
      * @throws Exception
      */
-    public function cartDetailsAction()
+    public function cartDetailsAction(): Response
     {
         $appService = $this->get('docutea.application.view_cart');
         $appService->execute();
@@ -121,7 +121,7 @@ class StoreController extends Controller
      * @return Response
      * @throws Exception
      */
-    public function confirmOrderAction()
+    public function confirmOrderAction(): Response
     {
         $appService = $this->get('docutea.application.view_cart');
         $appService->execute();
@@ -141,7 +141,7 @@ class StoreController extends Controller
      * @return Response
      * @throws Exception
      */
-    public function getUserDataAction(Request $request)
+    public function getUserDataAction(Request $request): Response
     {
         $appValidationService = $this->get('docutea.infraestructure_services.shopping_cart_has_amount');
         if (!$appValidationService->hasAmount()) {

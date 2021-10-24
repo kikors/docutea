@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Services\DefaultValues;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -15,8 +16,8 @@ class ImpresorasController extends Controller
 
     /**
      * @Route("/impresoras", name="impresoras")
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @throws \Exception
+     * @return \Symfony\Component\HttpFoundation\Response|null
+     * @throws Exception
      */
     public function impresorasAction()
     {
